@@ -11,7 +11,7 @@ export default function RootLayout({
       <body suppressHydrationWarning={true}>
         <div className="dark:bg-boxdark-2 dark:text-bodydark">
           <HeaderHome />
-          <main className="relative isolate px-6 pt-18 pb-4 lg:px-8">
+          <main className="relative isolate px-6 pt-18 pb-4 lg:px-8 flex justify-center">
               {children}
           </main>
         </div>

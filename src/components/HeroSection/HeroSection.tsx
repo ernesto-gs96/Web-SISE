@@ -2,17 +2,17 @@ import Link from "next/link";
 
 export const HeroSection = () => {
     return (
-        <div className="relative isolate px-6 pt-14 lg:px-8">
+        <div className="relative isolate px-6 lg:px-8">
             <div
                 className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
                 aria-hidden="true"
             >
                 <div className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]" />
             </div>
-            <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
+            <div className="mx-auto max-w-2xl py-32 sm:py-24 lg:py-32">
                 <div className="hidden sm:mb-8 sm:flex sm:justify-center">
                     <div className="text-gray-600 ring-gray-900/10 hover:ring-gray-900/20 relative rounded-full px-3 py-1 text-sm leading-6 ring-1">
-                        ¿Como puedo ser un agente Qualitas?{" "}
+                        ¿Como puedo ser un agente?{" "}
                         <Link href="/agente/auth/signin" className="font-semibold text-indigo-600">
                             <span className="absolute inset-0" aria-hidden="true" />
                             Mas información <span aria-hidden="true">&rarr;</span>
@@ -21,7 +21,7 @@ export const HeroSection = () => {
                 </div>
                 <div className="text-center">
                     <h1 className="text-gray-900 text-4xl font-bold tracking-tight sm:text-6xl">
-                        Qualitas aseguradora
+                        Aseguradora
                     </h1>
                     <p className="text-gray-600 mt-6 text-lg leading-8">
                     Proteger el patrimonio y la integridad física de los propietarios de vehículos automotores asegurados, así como su responsabilidad ante terceros, por medio de un servicio de calidad, que cumpla con el contrato de seguro pactado y que satisfaga plenamente las expectativas de nuestros clientes.

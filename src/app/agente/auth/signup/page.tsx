@@ -5,15 +5,15 @@ import Image from "next/image";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Next.js SignUp Page | TailAdmin - Next.js Dashboard Template",
-  description: "This is Next.js SignUp Page TailAdmin Dashboard Template",
+  title: "Registro agente",
+  description: "Pagino de registro de agente",
   // other metadata
 };
 
 const SignUp: React.FC = () => {
   return (
     <>
-      <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
+      <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark md:w-2/3">
         <div className="flex flex-wrap items-center">
           <div className="hidden w-full xl:block xl:w-1/2">
             <div className="px-26 py-17.5 text-center">
