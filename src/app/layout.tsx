@@ -7,12 +7,12 @@ import HeaderHome from "@/components/NavBar/HeaderHome";
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: {
+  children: React.ReactNode
+}) {
   return (
     <html lang="es">
-      <body suppressHydrationWarning={true}>
+      <body>
         <HeaderHome/>
         <div className="dark:bg-boxdark-2 dark:text-bodydark">
           {children}

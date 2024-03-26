@@ -214,7 +214,7 @@ const Sidebar = () => {
               MENU
             </h3>
             <ul className="mb-6 flex flex-col gap-1.5">
-              {opciones.map(opcion => opcion.grupo ? <SidebarItemGroup key={opcion.href} {...opcion} /> : <SidebarItem key={opcion.href} {...opcion} />)}
+              {opciones.map(opcion => opcion.grupo ? <SidebarItemGroup key={opcion.nombre+opcion.href} {...opcion} /> : <SidebarItem key={opcion.href} {...opcion} />)}
             </ul>
           </div>
 
@@ -223,7 +223,7 @@ const Sidebar = () => {
               OTRAS
             </h3>
             <ul className="mb-6 flex flex-col gap-1.5">
-              {otrasOpciones.map(opcion => opcion.grupo ? <SidebarItemGroup key={opcion.href} {...opcion} /> : <SidebarItem key={opcion.href} {...opcion} />)}
+              {otrasOpciones.map(opcion => opcion.grupo ? <SidebarItemGroup key={opcion.nombre+opcion.href} {...opcion} /> : <SidebarItem key={opcion.href} {...opcion} />)}
             </ul>
           </div>
         </nav>

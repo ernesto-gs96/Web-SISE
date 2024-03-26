@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 export default function Example() {
 
   return (
-    <div className="bg-white">
+    <div className="bg-slate-50 h-screen">
       <HeroSection/>
     </div>
   );

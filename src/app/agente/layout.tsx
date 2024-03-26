@@ -6,9 +6,9 @@ import { Providers } from "@/store/Providers";
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: {
+  children: React.ReactNode
+}) {
   return (
     <html lang="es">
       <body suppressHydrationWarning={true}>
