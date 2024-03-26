@@ -13,7 +13,7 @@ export const HeroSection = () => {
                 <div className="hidden sm:mb-8 sm:flex sm:justify-center">
                     <div className="text-gray-600 ring-gray-900/10 hover:ring-gray-900/20 relative rounded-full px-3 py-1 text-sm leading-6 ring-1">
                         ¿Como puedo ser un agente Qualitas?{" "}
-                        <Link href="/agente" className="font-semibold text-indigo-600">
+                        <Link href="/agente/auth/signin" className="font-semibold text-indigo-600">
                             <span className="absolute inset-0" aria-hidden="true" />
                             Mas información <span aria-hidden="true">&rarr;</span>
                         </Link>

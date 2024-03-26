@@ -63,7 +63,7 @@ export default function HeaderHome() {
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <Link
-            href="/agente"
+            href="/agente/auth/signin"
             className="text-gray-900 text-sm font-semibold leading-6"
           >
             Iniciar sesion <span aria-hidden="true">&rarr;</span>
@@ -113,7 +113,7 @@ export default function HeaderHome() {
               </div>
               <div className="py-6">
                 <Link
-                  href="/agente"
+                  href="/agente/auth/signin"
                   className="text-gray-900 hover:bg-gray-50 -mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7"
                 >
                   Inciar de sesion
