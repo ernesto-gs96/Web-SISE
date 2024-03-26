@@ -3,6 +3,7 @@ import "flatpickr/dist/flatpickr.min.css";
 import "@/css/satoshi.css";
 import "@/css/style.css";
 
+import { Providers } from "@/store/Providers";
 import HeaderHome from "@/components/NavBar/HeaderHome";
 
 export default function RootLayout({
@@ -12,11 +13,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es">
-      <body>
-        <HeaderHome/>
-        <div className="dark:bg-boxdark-2 dark:text-bodydark">
+      <body className="dark:bg-boxdark-2 dark:text-bodydark">
+        <Providers>
           {children}
-        </div>
+        </Providers>
       </body>
     </html>
   );

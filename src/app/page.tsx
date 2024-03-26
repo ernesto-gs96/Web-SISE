@@ -1,4 +1,5 @@
 import { HeroSection } from "@/components/HeroSection/HeroSection";
+import HeaderHome from "@/components/NavBar/HeaderHome";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -6,11 +7,14 @@ export const metadata: Metadata = {
   description: "Pagina principal de aseguradora",
 };
 
-export default function Example() {
+export default function HomePage() {
 
   return (
-    <div className="bg-slate-50 h-screen">
-      <HeroSection/>
-    </div>
+    <>
+      <HeaderHome />
+      <div className="bg-slate-50 h-screen">
+        <HeroSection />
+      </div>
+    </>
   );
 }

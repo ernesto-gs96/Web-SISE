@@ -1,15 +1,15 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
-interface CounterState {
+interface EstatusSidebar {
     sidebarOpen: boolean;
 }
 
-const initialState: CounterState = {
+const initialState: EstatusSidebar = {
     sidebarOpen: false
 }
 
 const counterSlice = createSlice({
-  name: 'counter',
+  name: 'Estatus sidebar',
   initialState,
   reducers: {
     cambiarSidebarOpen(state){

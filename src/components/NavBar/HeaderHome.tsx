@@ -1,14 +1,11 @@
 "use client";
-
-import { useState } from 'react'
-
 import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
-
 import { Dialog } from "@headlessui/react";
 
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import { useEffect, useState } from 'react';
 
 const navigation = [
   { name: 'Inicio', href: '/'  },
@@ -19,8 +16,8 @@ const navigation = [
 
 export default function HeaderHome() {
 
+  const [ mobileMenuOpen, setmobileMenuOpen ] = useState(false);
   const pathname = usePathname();
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
     <header className="absolute inset-x-0 top-0 z-50">
@@ -44,7 +41,7 @@ export default function HeaderHome() {
           <button
             type="button"
             className="text-gray-700 -m-2.5 inline-flex items-center justify-center rounded-md p-2.5"
-            onClick={() => setMobileMenuOpen(true)}
+            onClick={() => setmobileMenuOpen(false)}
           >
             <span className="sr-only">Open main menu</span>
             <Bars3Icon className="h-6 w-6" aria-hidden="true" />
@@ -63,7 +60,7 @@ export default function HeaderHome() {
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <Link
-            href="/agente/auth/signin"
+            href="/auth/agente/signin"
             className="text-gray-900 text-sm font-semibold leading-6"
           >
             Iniciar sesion <span aria-hidden="true">&rarr;</span>
@@ -74,7 +71,7 @@ export default function HeaderHome() {
         as="div"
         className="lg:hidden"
         open={mobileMenuOpen}
-        onClose={setMobileMenuOpen}
+        onClose={() => setmobileMenuOpen(false)}
       >
         <div className="fixed inset-0 z-50" />
         <Dialog.Panel className="sm:ring-gray-900/10 fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1">
@@ -92,7 +89,7 @@ export default function HeaderHome() {
             <button
               type="button"
               className="text-gray-700 -m-2.5 rounded-md p-2.5"
-              onClick={() => setMobileMenuOpen(false)}
+              onClick={() => setmobileMenuOpen(false)}
             >
               <span className="sr-only">Close menu</span>
               <XMarkIcon className="h-6 w-6" aria-hidden="true" />
