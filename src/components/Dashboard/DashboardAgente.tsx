@@ -3,6 +3,7 @@
 import CardDataStats from "@/components/CardDataStats";
 import ChartOne from "@/components/Charts/ChartOne";
 import { BanknotesIcon, CurrencyDollarIcon, DocumentPlusIcon } from "@heroicons/react/24/outline";
+import ChartTwo from "../Charts/ChartTwo";
 
 const cards = [
     {
@@ -48,6 +49,7 @@ export const DashboardAgente = () => {
 
             <div className="mt-4 grid grid-cols-12 gap-4 md:mt-6 md:gap-6 2xl:mt-7.5 2xl:gap-7.5">
                 <ChartOne />
+                <ChartTwo />
             </div>
         </>
     );
