@@ -1,26 +1,20 @@
 import React, { ReactNode } from "react";
 
 interface CardDataStatsProps {
-  title: string;
+  titulo: string;
   total: string;
-  rate: string;
-  levelUp?: boolean;
-  levelDown?: boolean;
-  children: ReactNode;
+  icono: JSX.Element;
+  porcentaje?: string;
+  level?: boolean;
 }
 
-const CardDataStats: React.FC<CardDataStatsProps> = ({
-  title,
-  total,
-  rate,
-  levelUp,
-  levelDown,
-  children,
-}) => {
+const CardDataStats: React.FC<CardDataStatsProps> = (props) => {
+
+  const { titulo, total, porcentaje, level, icono } = props;
   return (
     <div className="rounded-sm border border-stroke bg-white px-7.5 py-6 shadow-default dark:border-strokedark dark:bg-boxdark">
       <div className="flex h-11.5 w-11.5 items-center justify-center rounded-full bg-meta-2 dark:bg-meta-4">
-        {children}
+        {icono}
       </div>
 
       <div className="mt-4 flex items-end justify-between">
@@ -28,17 +22,16 @@ const CardDataStats: React.FC<CardDataStatsProps> = ({
           <h4 className="text-title-md font-bold text-black dark:text-white">
             {total}
           </h4>
-          <span className="text-sm font-medium">{title}</span>
+          <span className="text-sm font-medium">{titulo}</span>
         </div>
 
         <span
-          className={`flex items-center gap-1 text-sm font-medium ${
-            levelUp && "text-meta-3"
-          } ${levelDown && "text-meta-5"} `}
+          className={`flex items-center gap-1 text-sm font-medium ${level && "text-meta-3"
+            } ${(!level && porcentaje) ? "text-meta-5" : ''} `}
         >
-          {rate}
+          {porcentaje}
 
-          {levelUp && (
+          {level && (
             <svg
               className="fill-meta-3"
               width="10"
@@ -53,7 +46,7 @@ const CardDataStats: React.FC<CardDataStatsProps> = ({
               />
             </svg>
           )}
-          {levelDown && (
+          {(!level && porcentaje) ? (
             <svg
               className="fill-meta-5"
               width="10"
@@ -67,7 +60,8 @@ const CardDataStats: React.FC<CardDataStatsProps> = ({
                 fill=""
               />
             </svg>
-          )}
+          )
+            : ''}
         </span>
       </div>
     </div>
