@@ -84,18 +84,18 @@ const options: ApexOptions = {
   xaxis: {
     type: "category",
     categories: [
-      "Sep",
-      "Oct",
-      "Nov",
-      "Dec",
-      "Jan",
-      "Feb",
-      "Mar",
-      "Apr",
+      "Abr",
       "May",
       "Jun",
       "Jul",
-      "Aug",
+      "Ago",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dic",
+      "Ene",
+      "Feb",
+      "Mar",
     ],
     axisBorder: {
       show: false,
@@ -126,13 +126,13 @@ const ChartOne: React.FC = () => {
   const [state, setState] = useState<ChartOneState>({
     series: [
       {
-        name: "Product One",
-        data: [23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30, 45],
+        name: "Pólizas emitidas",
+        data: [10, 11, 15, 9, 13, 18, 14, 21, 7, 13, 30, 17],
       },
 
       {
-        name: "Product Two",
-        data: [30, 25, 36, 30, 45, 35, 64, 52, 59, 36, 39, 51],
+        name: "Comisiones",
+        data: [25, 28, 36, 21, 26, 35, 23, 41, 18, 26, 51, 28],
       },
     ],
   });
@@ -153,8 +153,8 @@ const ChartOne: React.FC = () => {
               <span className="block h-2.5 w-full max-w-2.5 rounded-full bg-primary"></span>
             </span>
             <div className="w-full">
-              <p className="font-semibold text-primary">Total Revenue</p>
-              <p className="text-sm font-medium">12.04.2022 - 12.05.2022</p>
+              <p className="font-semibold text-primary">Total pólizas emitidas</p>
+              <p className="text-xs font-medium">01/04/2023 - 26/04/2024</p>
             </div>
           </div>
           <div className="flex min-w-47.5">
@@ -162,21 +162,21 @@ const ChartOne: React.FC = () => {
               <span className="block h-2.5 w-full max-w-2.5 rounded-full bg-secondary"></span>
             </span>
             <div className="w-full">
-              <p className="font-semibold text-secondary">Total Sales</p>
-              <p className="text-sm font-medium">12.04.2022 - 12.05.2022</p>
+              <p className="font-semibold text-secondary">Total comisiones</p>
+              <p className="text-xs font-medium">01/04/2023 - 26/04/2024</p>
             </div>
           </div>
         </div>
         <div className="flex w-full max-w-45 justify-end">
           <div className="inline-flex items-center rounded-md bg-whiter p-1.5 dark:bg-meta-4">
             <button className="rounded bg-white px-3 py-1 text-xs font-medium text-black shadow-card hover:bg-white hover:shadow-card dark:bg-boxdark dark:text-white dark:hover:bg-boxdark">
-              Day
+              Mes
             </button>
             <button className="rounded px-3 py-1 text-xs font-medium text-black hover:bg-white hover:shadow-card dark:text-white dark:hover:bg-boxdark">
-              Week
+              Semana
             </button>
             <button className="rounded px-3 py-1 text-xs font-medium text-black hover:bg-white hover:shadow-card dark:text-white dark:hover:bg-boxdark">
-              Month
+              Dia
             </button>
           </div>
         </div>

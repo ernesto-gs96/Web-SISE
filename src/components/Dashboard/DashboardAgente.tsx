@@ -7,7 +7,7 @@ import { BanknotesIcon, CurrencyDollarIcon, DocumentPlusIcon } from "@heroicons/
 const cards = [
     {
         titulo: 'Comisiones cobrada',
-        total: '$35,000.00',
+        total: '$28,000.00',
         icono: <CurrencyDollarIcon className="h-8 w-8" />,
         porcentaje: '38.9%',
         level: true,
