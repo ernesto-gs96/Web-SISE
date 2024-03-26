@@ -123,7 +123,7 @@ const otrasOpciones = [
   },
   {
     nombre: 'Cerrar sesion',
-    href: '/agente/auth/signin',
+    href: '/auth/agente/signin',
     icono: <ArrowLeftStartOnRectangleIcon className="h-6 w-6" />
   },
 ]

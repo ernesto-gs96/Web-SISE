@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function SignIn() {
   return (
-    <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
+    <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark lg:w-2/5 xl:w-full">
       <div className="flex flex-wrap items-center">
         <div className="hidden w-full xl:block xl:w-1/2">
           <div className="px-26 py-17.5 text-center">
@@ -247,10 +247,10 @@ export default function SignIn() {
               </div>
 
               <div className="flex justify-center mt-6">
-                <span>
-                  ¿Aún no eres agente?{" "}
+                <span className="me-2">
+                  ¿Aún no eres agente? {" "}
                 </span>
-                <Link href="/agente/auth/signup" className="text-primary">
+                <Link href="/auth/agente/signup" className="text-primary">
                   Quiero ser agente
                 </Link>
               </div>

@@ -10,10 +10,10 @@ export const metadata: Metadata = {
   // other metadata
 };
 
-const SignUp: React.FC = () => {
+export default function Signup() {
   return (
     <>
-      <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark md:w-2/3">
+      <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark lg:w-3/5 xl:w-full">
         <div className="flex flex-wrap items-center">
           <div className="hidden w-full xl:block xl:w-1/2">
             <div className="px-26 py-17.5 text-center">
@@ -319,7 +319,7 @@ const SignUp: React.FC = () => {
                 <div className="mt-6 text-center">
                   <p>
                     ¿Ya tienes cuenta?{" "}
-                    <Link href="/agente/auth/signin" className="text-primary">
+                    <Link href="/auth/agente/signin" className="text-primary">
                       Inicia sesion
                     </Link>
                   </p>
@@ -332,5 +332,3 @@ const SignUp: React.FC = () => {
     </>
   );
 };
-
-export default SignUp;
