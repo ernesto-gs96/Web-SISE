@@ -1,7 +1,7 @@
-import ECommerce from "@/components/Dashboard/E-commerce";
 import { Metadata } from "next";
+
 import DefaultLayout from "@/components/Layouts/DefaultLayout";
-import { Inicio } from "./components/Inicio";
+import { DashboardAgente } from "@/components/Dashboard/DashboardAgente";
 
 export const metadata: Metadata = {
   title: "Agente inicio",
@@ -12,8 +12,7 @@ export default function Home() {
   return (
     <>
       <DefaultLayout>
-        {/* <ECommerce /> */}
-        <Inicio/>
+        <DashboardAgente/>
       </DefaultLayout>
     </>
   );

@@ -1,5 +1,42 @@
+"use client";
+
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { Notificacion } from "./Notificacion";
+
+const notificaciones = [
+  {
+    titulo: "Poliza emitida",
+    mensaje: "Se emitio nueva póliza con número 0000000010",
+    href: "/agente/poliza/consulta/0000000010",
+    fecha: "26/03/2024"
+  },
+  {
+    titulo: "Poliza sin pagar",
+    mensaje: "Aun no se ha realizado el pago de la póliza 0000000006",
+    href: "/agente/poliza/consulta/0000000006",
+    fecha: "26/03/2024"
+  },
+  {
+    titulo: "Poliza cancelada",
+    mensaje: "Se ha cancelado la póliza 0000000002",
+    href: "/agente/poliza/consulta/0000000002",
+    fecha: "25/03/2024"
+  },
+  {
+    titulo: "Nuevo asegurado",
+    mensaje: "Se ha registrado nuevo asegurado con número 00000002",
+    href: "/agente/asegurado/consulta/00000002",
+    fecha: "25/03/2024"
+  },
+  {
+    titulo: "Comisiones cobradas",
+    mensaje: "Se han deposito comisiones por valor de $2,500.00",
+    href: "/agente/comisiones/consulta/00000003",
+    fecha: "24/03/2024"
+  },
+
+]
 
 const DropdownNotification = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -35,13 +72,13 @@ const DropdownNotification = () => {
 
   return (
     <li className="relative">
-      <Link
+      <button
+        type="button"
         ref={trigger}
         onClick={() => {
           setNotifying(false);
           setDropdownOpen(!dropdownOpen);
         }}
-        href="#"
         className="relative flex h-8.5 w-8.5 items-center justify-center rounded-full border-[0.5px] border-stroke bg-gray hover:text-primary dark:border-strokedark dark:bg-meta-4 dark:text-white"
       >
         <span
@@ -49,7 +86,7 @@ const DropdownNotification = () => {
             notifying === false ? "hidden" : "inline"
           }`}
         >
-          <span className="absolute -z-1 inline-flex h-full w-full animate-ping rounded-full bg-meta-1 opacity-75"></span>
+          <span className="absolute -z-1 inline-flex h-full w-full -start-0 animate-ping rounded-full bg-meta-1 opacity-75"></span>
         </span>
 
         <svg
@@ -65,7 +102,7 @@ const DropdownNotification = () => {
             fill=""
           />
         </svg>
-      </Link>
+      </button>
 
       <div
         ref={dropdown}
@@ -76,73 +113,11 @@ const DropdownNotification = () => {
         }`}
       >
         <div className="px-4.5 py-3">
-          <h5 className="text-sm font-medium text-bodydark2">Notification</h5>
+          <h5 className="text-sm font-medium text-bodydark2">Notificaciones</h5>
         </div>
 
         <ul className="flex h-auto flex-col overflow-y-auto">
-          <li>
-            <Link
-              className="flex flex-col gap-2.5 border-t border-stroke px-4.5 py-3 hover:bg-gray-2 dark:border-strokedark dark:hover:bg-meta-4"
-              href="#"
-            >
-              <p className="text-sm">
-                <span className="text-black dark:text-white">
-                  Edit your information in a swipe
-                </span>{" "}
-                Sint occaecat cupidatat non proident, sunt in culpa qui officia
-                deserunt mollit anim.
-              </p>
-
-              <p className="text-xs">12 May, 2025</p>
-            </Link>
-          </li>
-          <li>
-            <Link
-              className="flex flex-col gap-2.5 border-t border-stroke px-4.5 py-3 hover:bg-gray-2 dark:border-strokedark dark:hover:bg-meta-4"
-              href="#"
-            >
-              <p className="text-sm">
-                <span className="text-black dark:text-white">
-                  It is a long established fact
-                </span>{" "}
-                that a reader will be distracted by the readable.
-              </p>
-
-              <p className="text-xs">24 Feb, 2025</p>
-            </Link>
-          </li>
-          <li>
-            <Link
-              className="flex flex-col gap-2.5 border-t border-stroke px-4.5 py-3 hover:bg-gray-2 dark:border-strokedark dark:hover:bg-meta-4"
-              href="#"
-            >
-              <p className="text-sm">
-                <span className="text-black dark:text-white">
-                  There are many variations
-                </span>{" "}
-                of passages of Lorem Ipsum available, but the majority have
-                suffered
-              </p>
-
-              <p className="text-xs">04 Jan, 2025</p>
-            </Link>
-          </li>
-          <li>
-            <Link
-              className="flex flex-col gap-2.5 border-t border-stroke px-4.5 py-3 hover:bg-gray-2 dark:border-strokedark dark:hover:bg-meta-4"
-              href="#"
-            >
-              <p className="text-sm">
-                <span className="text-black dark:text-white">
-                  There are many variations
-                </span>{" "}
-                of passages of Lorem Ipsum available, but the majority have
-                suffered
-              </p>
-
-              <p className="text-xs">01 Dec, 2024</p>
-            </Link>
-          </li>
+          { notificaciones.map( notificacion => <Notificacion key={notificacion.href} {...notificacion} /> )}
         </ul>
       </div>
     </li>

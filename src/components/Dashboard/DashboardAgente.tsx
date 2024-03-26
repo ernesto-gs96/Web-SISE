@@ -15,7 +15,9 @@ const cards = [
     {
         titulo: 'Comisiones pediente',
         total: '$12,000.00',
-        icono: <CurrencyDollarIcon className="h-8 w-8" />
+        icono: <CurrencyDollarIcon className="h-8 w-8" />,
+        porcentaje: '18.9%',
+        level: false,
     },
     {
         titulo: 'Polizas emitidas',
@@ -33,7 +35,7 @@ const cards = [
     },
 ]
 
-export const Inicio = () => {
+export const DashboardAgente = () => {
     return (
         <>
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-7.5">

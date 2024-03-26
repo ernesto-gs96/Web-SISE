@@ -1,12 +1,27 @@
+"use client";
+
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-const DropdownUser = () => {
+interface Props {
+  usuario: Usuario,
+}
+
+interface Usuario {
+  id: string,
+  nombre: string
+  rol: string
+  fotografia: string
+}
+
+const DropdownUser = (props: Props) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const trigger = useRef<any>(null);
   const dropdown = useRef<any>(null);
+
+  const { nombre, rol, fotografia } = props.usuario;
 
   // close on click outside
   useEffect(() => {
@@ -44,16 +59,16 @@ const DropdownUser = () => {
       >
         <span className="hidden text-right lg:block">
           <span className="block text-sm font-medium text-black dark:text-white">
-            Thomas Anree
+            {nombre}
           </span>
-          <span className="block text-xs">UX Designer</span>
+          <span className="block text-xs">{rol}</span>
         </span>
 
         <span className="h-12 w-12 rounded-full">
           <Image
             width={112}
             height={112}
-            src={"/images/user/user-01.png"}
+            src={fotografia}
             style={{
               width: "auto",
               height: "auto",
@@ -111,7 +126,7 @@ const DropdownUser = () => {
                   fill=""
                 />
               </svg>
-              My Profile
+              Perfil
             </Link>
           </li>
           <li>
@@ -132,7 +147,7 @@ const DropdownUser = () => {
                   fill=""
                 />
               </svg>
-              My Contacts
+              Cartera
             </Link>
           </li>
           <li>
@@ -157,11 +172,11 @@ const DropdownUser = () => {
                   fill=""
                 />
               </svg>
-              Account Settings
+              Configuraciones
             </Link>
           </li>
         </ul>
-        <button className="flex items-center gap-3.5 px-6 py-4 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base">
+        <Link href="/agente/auth/signin" className="flex items-center gap-3.5 px-6 py-4 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base">
           <svg
             className="fill-current"
             width="22"
@@ -179,8 +194,8 @@ const DropdownUser = () => {
               fill=""
             />
           </svg>
-          Log Out
-        </button>
+          Cerrar sesion
+        </Link>
       </div>
       {/* <!-- Dropdown End --> */}
     </div>
