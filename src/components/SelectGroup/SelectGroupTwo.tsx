@@ -1,7 +1,23 @@
 "use client";
 import React, { useState } from "react";
 
-const SelectGroupTwo: React.FC = () => {
+interface opciones {
+  texto: string,
+  valor: string | number;
+}
+
+interface Props {
+  label: string,
+  opciones: opciones[],
+  opcion?: string,
+  activo?: boolean,
+  icono?: JSX.Element,
+}
+
+const SelectGroupTwo = (props: Props) => {
+
+  const { label, opciones, opcion, activo, icono } = props;
+
   const [selectedOption, setSelectedOption] = useState<string>("");
   const [isOptionSelected, setIsOptionSelected] = useState<boolean>(false);
 
@@ -12,7 +28,7 @@ const SelectGroupTwo: React.FC = () => {
   return (
     <div>
       <label className="mb-3 block text-sm font-medium text-black dark:text-white">
-        Select Country
+        {label}
       </label>
 
       <div className="relative z-20 bg-white dark:bg-form-input">
@@ -49,6 +65,7 @@ const SelectGroupTwo: React.FC = () => {
 
         <select
           value={selectedOption}
+          title="selecttewo"
           onChange={(e) => {
             setSelectedOption(e.target.value);
             changeTextColor();
@@ -58,17 +75,13 @@ const SelectGroupTwo: React.FC = () => {
           }`}
         >
           <option value="" disabled className="text-body dark:text-bodydark">
-            Select Country
+            {label}
           </option>
-          <option value="USA" className="text-body dark:text-bodydark">
-            USA
-          </option>
-          <option value="UK" className="text-body dark:text-bodydark">
-            UK
-          </option>
-          <option value="Canada" className="text-body dark:text-bodydark">
-            Canada
-          </option>
+          { opciones.map( (opcion, index) => 
+            <option key={`${opcion.texto}-${index}`} value={opcion.valor} className="text-body dark:text-bodydark">
+              {opcion.texto}
+            </option>
+          )}
         </select>
 
         <span className="absolute right-4 top-1/2 z-10 -translate-y-1/2">

@@ -1,4 +1,6 @@
+import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
 import { Metadata } from "next";
+import { FormularioAsegurado } from "./components/FormularioAsegurado";
 
 export const metadata: Metadata = {
   title: "Emicion de poliza",
@@ -8,7 +10,7 @@ export const metadata: Metadata = {
 export default function EmitirPolizaPage() {
   return (
     <>
-      <h2>Emitir poliza</h2>
+      <FormularioAsegurado/>
     </>
   );
 }
