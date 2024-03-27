@@ -106,7 +106,7 @@ const DropdownUser = (props: Props) => {
         <ul className="flex flex-col gap-5 border-b border-stroke px-6 py-7.5 dark:border-strokedark">
           <li>
             <Link
-              href="/profile"
+              href="/agente/informacion"
               className="flex items-center gap-3.5 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base"
             >
               <svg
@@ -126,12 +126,12 @@ const DropdownUser = (props: Props) => {
                   fill=""
                 />
               </svg>
-              Perfil
+              Informacion
             </Link>
           </li>
           <li>
             <Link
-              href="#"
+              href="/agente/cartera"
               className="flex items-center gap-3.5 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base"
             >
               <svg
@@ -152,7 +152,7 @@ const DropdownUser = (props: Props) => {
           </li>
           <li>
             <Link
-              href="/settings"
+              href="/agente/configuraciones"
               className="flex items-center gap-3.5 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base"
             >
               <svg

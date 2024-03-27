@@ -40,6 +40,8 @@ const cards = [
 ]
 
 export const DashboardAgente = () => {
+
+    // TODO: Pasar TableOne a movimientos o cartera, como se vaya a llamar en el futuro
     return (
         <>
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
@@ -64,9 +66,9 @@ export const DashboardAgente = () => {
                 </div>
             </div>
             
-            <div className="mt-4">
+            {/* <div className="mt-4">
                 <TableOne />
-            </div>
+            </div> */}
 
         </>
     );
