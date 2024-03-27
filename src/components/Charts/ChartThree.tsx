@@ -11,8 +11,8 @@ const options: ApexOptions = {
     fontFamily: "Satoshi, sans-serif",
     type: "donut",
   },
-  colors: ["#3C50E0", "#6577F3", "#8FD0EF", "#0FADCF"],
-  labels: ["Emitidas", "Renovadas", "Canceladas", "Siniestros"],
+  colors: ["#3C50E0", "#0FADCF", "#8FD0EF"],
+  labels: ["Emitidas", "Renovadas", "Canceladas"],
   legend: {
     show: false,
     position: "bottom",
@@ -51,19 +51,19 @@ const options: ApexOptions = {
 
 const ChartThree: React.FC = () => {
   const [state, setState] = useState<ChartThreeState>({
-    series: [65, 34, 12, 56],
+    series: [60.01, 23.33, 16.66],
   });
 
   const handleReset = () => {
     setState((prevState) => ({
       ...prevState,
-      series: [65, 34, 12, 56],
+      series: [60.01, 23.33, 16.66],
     }));
   };
   handleReset;
 
   return (
-    <div className="col-span-12 rounded-sm border border-stroke bg-white px-5 pb-5 pt-7.5 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:col-span-5">
+    <div className="rounded-sm border border-stroke bg-white px-5 pb-5 pt-7.5 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5">
       <div className="mb-3 justify-between gap-4 sm:flex">
         <div>
           <h5 className="text-xl font-semibold text-black dark:text-white">
@@ -73,8 +73,9 @@ const ChartThree: React.FC = () => {
         <div>
           <div className="relative z-20 inline-block">
             <select
-              name=""
-              id=""
+              name="ChartThree"
+              id="ChartThreen"
+              title="select"
               className="relative z-20 inline-flex appearance-none bg-transparent py-1 pl-3 pr-8 text-sm font-medium outline-none"
             >
               <option value="" className="dark:bg-boxdark">
@@ -124,16 +125,16 @@ const ChartThree: React.FC = () => {
             <span className="mr-2 block h-3 w-full max-w-3 rounded-full bg-primary"></span>
             <p className="flex w-full justify-between text-sm font-medium text-black dark:text-white">
               <span> Emitidas </span>
-              <span> 65% </span>
+              <span> {state.series[0]}% </span>
             </p>
           </div>
         </div>
         <div className="w-full px-8 sm:w-1/2">
           <div className="flex w-full items-center">
-            <span className="mr-2 block h-3 w-full max-w-3 rounded-full bg-[#6577F3]"></span>
+            <span className="mr-2 block h-3 w-full max-w-3 rounded-full bg-[#0FADCF]"></span>
             <p className="flex w-full justify-between text-sm font-medium text-black dark:text-white">
               <span> Renovadas </span>
-              <span> 34% </span>
+              <span> {state.series[1]}% </span>
             </p>
           </div>
         </div>
@@ -142,11 +143,11 @@ const ChartThree: React.FC = () => {
             <span className="mr-2 block h-3 w-full max-w-3 rounded-full bg-[#8FD0EF]"></span>
             <p className="flex w-full justify-between text-sm font-medium text-black dark:text-white">
               <span> Canceladas </span>
-              <span> 45% </span>
+              <span> {state.series[2]}% </span>
             </p>
           </div>
         </div>
-        <div className="w-full px-8 sm:w-1/2">
+        {/* <div className="w-full px-8 sm:w-1/2">
           <div className="flex w-full items-center">
             <span className="mr-2 block h-3 w-full max-w-3 rounded-full bg-[#0FADCF]"></span>
             <p className="flex w-full justify-between text-sm font-medium text-black dark:text-white">
@@ -154,7 +155,7 @@ const ChartThree: React.FC = () => {
               <span> 12% </span>
             </p>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

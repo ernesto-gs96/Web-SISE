@@ -44,7 +44,7 @@ const options: ApexOptions = {
   },
 
   xaxis: {
-    categories: ["M", "T", "W", "T", "F", "S", "S"],
+    categories: ["L", "M", "M", "J", "V", "S", "D"],
   },
   legend: {
     position: "top",
@@ -73,12 +73,12 @@ const ChartTwo: React.FC = () => {
   const [state, setState] = useState<ChartTwoState>({
     series: [
       {
-        name: "Cobradas",
-        data: [44, 55, 41, 67, 22, 43, 65],
+        name: "Emiciones",
+        data: [2, 3, 0, 5, 1, 2, 1],
       },
       {
-        name: "Pendientes",
-        data: [13, 23, 20, 8, 13, 27, 15],
+        name: "Cotizaciones",
+        data: [5, 6, 4, 8, 3, 4, 1],
       },
     ],
   });
@@ -91,11 +91,11 @@ const ChartTwo: React.FC = () => {
   handleReset;
 
   return (
-    <div className="col-span-12 rounded-sm border border-stroke bg-white p-7.5 shadow-default dark:border-strokedark dark:bg-boxdark xl:col-span-4">
+    <div className="rounded-sm border border-stroke bg-white p-7.5 shadow-default dark:border-strokedark dark:bg-boxdark h-full w-full">
       <div className="mb-4 justify-between gap-4 sm:flex">
         <div>
           <h4 className="text-xl font-semibold text-black dark:text-white">
-            Comisiones
+            Polizas
           </h4>
         </div>
         <div>
@@ -103,6 +103,7 @@ const ChartTwo: React.FC = () => {
             <select
               name="#"
               id="#"
+              title="selecttitle"
               className="relative z-20 inline-flex appearance-none bg-transparent py-1 pl-3 pr-8 text-sm font-medium outline-none"
             >
               <option value="" className="dark:bg-boxdark">
