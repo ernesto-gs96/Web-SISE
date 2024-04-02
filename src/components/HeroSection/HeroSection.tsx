@@ -8,7 +8,7 @@ export const HeroSection = () => {
                     <div className="text-gray-600 ring-gray-900/10 hover:ring-gray-900/20 relative rounded-full px-3 py-1 text-sm leading-6 ring-1">
                         ¿Como puedo ser un agente?{" "}
                         <Link href="/auth/agente/signin" className="font-semibold text-indigo-600">
-                            <span className="absolute inset-0" aria-hidden="true" />
+                            <span className="absolute inset-0" aria-hidden="true" ></span>
                             Mas información <span aria-hidden="true">&rarr;</span>
                         </Link>
                     </div>
