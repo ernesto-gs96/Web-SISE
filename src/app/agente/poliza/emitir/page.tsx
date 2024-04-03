@@ -2,8 +2,8 @@
 
 import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
 import { Metadata } from "next";
-import { FormularioAsegurado } from "./components/FormularioAsegurado";
-import { FormularioPolizaNueva } from "./components/FormularioPolizaNueva";
+import { FormularioAsegurado } from "../components/Formularios/FormularioAsegurado";
+import { FormularioPolizaNueva } from "../components/Formularios/FormularioPolizaNueva";
 import { useState } from "react";
 
 // export const metadata: Metadata = {

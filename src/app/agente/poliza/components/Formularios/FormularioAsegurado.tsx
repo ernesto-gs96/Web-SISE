@@ -1,14 +1,16 @@
 "use client";
 
-import DatePickerOne from "@/components/FormElements/DatePicker/DatePickerOne"
-import SelectGroupOne from "@/components/SelectGroup/SelectGroupOne"
-import SelectGroupTwo from "@/components/SelectGroup/SelectGroupTwo";
+import { useState } from "react"
+import { FormularioNuevoAsegurado } from "./FormularioNuevoAsegurado";
 
 interface Props {
     setState: Function,
 }
 
-export const FormularioAsegurado = ({setState}: Props) => {
+export const FormularioAsegurado = ({ setState }: Props) => {
+
+    const [formAseg, setFormAseg] = useState<boolean>(false);
+
     return (
         <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
             <div className="border-b border-stroke px-6.5 py-4 dark:border-strokedark">
@@ -32,16 +34,32 @@ export const FormularioAsegurado = ({setState}: Props) => {
                             />
                         </div>
 
-                    </div>
+                        <div className="col-span-1 flex flex-col-reverse">
+                            <button
+                                type="button"
+                                className="flex w-full justify-center rounded bg-primary p-3 font-medium text-gray hover:bg-opacity-90"
+                                onClick={() => setFormAseg(true)}
+                            >
+                                Nuevo asegurado
+                            </button>
+                        </div>
 
-                    <button 
-                        className="flex w-full justify-center rounded bg-primary p-3 font-medium text-gray hover:bg-opacity-90"
-                        onClick={() => setState(3)}
-                    >
-                        Guardar y continuar
-                    </button>
+
+                    </div>
                 </div>
             </form>
+
+            {
+                formAseg && <FormularioNuevoAsegurado />
+            }
+
+            <button
+                type="button"
+                className="flex w-full justify-center rounded bg-primary p-3 font-medium text-gray hover:bg-opacity-90"
+                onClick={() => setState(3)}
+            >
+                Guardar y continuar
+            </button>
         </div>
     )
 }
