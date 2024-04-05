@@ -3,6 +3,7 @@
 import DatePickerOne from "@/components/FormElements/DatePicker/DatePickerOne"
 import SelectGroupOne from "@/components/SelectGroup/SelectGroupOne"
 import SelectGroupTwo from "@/components/SelectGroup/SelectGroupTwo"
+import { useState } from "react";
 import { IoCalendarOutline, IoCashOutline, IoClipboardOutline } from "react-icons/io5";
 
 interface Props {
@@ -41,9 +42,24 @@ const politicasCancelacion = [
     { texto: "1 - 5 días", valor: 4 },
 ];
 
+const getFechaActual = () => new Date().toLocaleDateString();
+const getFechaHasta = (anios: number) => {
+    const fecha = new Date();
+    const formato = "dd/mm/yy";
+    return formato.replace('mm', fecha.getMonth().toString())
+    .replace('yy', (fecha.getFullYear() + anios).toString())
+	.replace('dd', fecha.getDate().toString());
+}
+
 
 
 export const FormularioPolizaNueva = ({setState}: Props) => {
+    
+    const [vigencia, setVigencia] = useState(1);
+    const [moneda, setMoneda] = useState(1);
+    const [tarifa, setTarifa] = useState(1);
+    const [politicaCompesacion, setPoliticaCompesacion] = useState(1);
+    
     return (
         <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
             <div className="border-b border-stroke px-6.5 py-4 dark:border-strokedark">
@@ -57,15 +73,15 @@ export const FormularioPolizaNueva = ({setState}: Props) => {
                     <div className="grid grid-cols-3 gap-4 mb-4">
 
                         <div className="col-span-1">
-                            <DatePickerOne label={"Vigencia desde"} fecha={"27/03/2024"} activio={false} />
+                            <DatePickerOne label={"Vigencia desde"} fecha={getFechaActual()} activio={false} />
                         </div>
 
                         <div className="col-span-1">
-                            <DatePickerOne label={"Vigencia hasta"} fecha={"27/03/2025"} activio={false} />
+                            <DatePickerOne label={"Vigencia hasta"} fecha={getFechaHasta(vigencia)} activio={false} />
                         </div>
 
                         <div className="col-span-1">
-                            <SelectGroupTwo label={"Vigencia"} opciones={vigencias} icono={iconoVigencia} />
+                            <SelectGroupTwo label={"Vigencia"} opciones={vigencias} icono={iconoVigencia} setOpcion={setVigencia} />
                         </div>
 
                         <div className="col-span-1">
@@ -93,15 +109,15 @@ export const FormularioPolizaNueva = ({setState}: Props) => {
                         </div>
 
                         <div className="col-span-1">
-                            <SelectGroupTwo label={"Moneda"} opciones={monedas} icono={iconoMonedac} />
+                            <SelectGroupTwo label={"Moneda"} opciones={monedas} icono={iconoMonedac} setOpcion={setMoneda} />
                         </div>
                         
                         <div className="col-span-1">
-                            <SelectGroupTwo label={"Tarifa"} opciones={tarifas} icono={iconoTarifas} />
+                            <SelectGroupTwo label={"Tarifa"} opciones={tarifas} icono={iconoTarifas} setOpcion={setTarifa} />
                         </div>
 
                         <div className="col-span-1">
-                            <SelectGroupTwo label={"Politica de compesación"} opciones={politicasCancelacion} icono={iconoTarifas} />
+                            <SelectGroupTwo label={"Politica de compesación"} opciones={politicasCancelacion} icono={iconoTarifas} setOpcion={setPoliticaCompesacion} />
                         </div>
 
                         <div className="col-span-1">
@@ -178,7 +194,7 @@ export const FormularioPolizaNueva = ({setState}: Props) => {
 
                     <button 
                         className="flex w-full justify-center rounded bg-primary p-3 font-medium text-gray hover:bg-opacity-90"
-                        onClick={() => setState(2)}
+                        onClick={() => setState(1)}
                     >
                         Guardar y continuar
                     </button>

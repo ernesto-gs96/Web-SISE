@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 interface opciones {
   texto: string,
@@ -12,11 +12,12 @@ interface Props {
   opcion?: string,
   activo?: boolean,
   icono?: JSX.Element,
+  setOpcion: Function
 }
 
 const SelectGroupTwo = (props: Props) => {
 
-  const { label, opciones, opcion, activo, icono } = props;
+  const { label, opciones, opcion, activo, icono, setOpcion } = props;
 
   const [selectedOption, setSelectedOption] = useState<string>("");
   const [isOptionSelected, setIsOptionSelected] = useState<boolean>(false);
@@ -42,6 +43,7 @@ const SelectGroupTwo = (props: Props) => {
           onChange={(e) => {
             setSelectedOption(e.target.value);
             changeTextColor();
+            setOpcion(e.target.value);
           }}
           className={`relative z-20 w-full appearance-none rounded border border-stroke bg-transparent px-12 py-3 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input ${
             isOptionSelected ? "text-black dark:text-white" : ""
