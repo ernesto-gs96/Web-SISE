@@ -11,32 +11,48 @@ import { useEffect, useState } from "react";
 //   description: "Pagina de Emicion de poliza",
 // };
 
-const datosCapturar = ["Poliza nueva","Asegurado","Vehiculo"]
+const datosCapturar = ["Poliza nueva", "Asegurado", "Vehiculo"]
 
 export default function EmitirPolizaPage() {
 
   const [numeroFormulario, setNumeroFormulario] = useState<number>(0);
-  const [ datosCaptura, setDatosCaptura ] = useState<string>(datosCapturar[0]);
+  const [datosCaptura, setDatosCaptura] = useState<string>(datosCapturar[0]);
 
-  useEffect( () => {
+  useEffect(() => {
     setDatosCaptura(datosCapturar[numeroFormulario])
-  },[numeroFormulario])
+  }, [numeroFormulario])
 
   return (
     <>
-      <Breadcrumb pageName={datosCaptura}/>
+      <Breadcrumb pageName={datosCaptura} />
       {
         numeroFormulario == 0
           ? <FormularioPolizaNueva setState={setNumeroFormulario} />
           : numeroFormulario == 1
             ? <FormularioAsegurado setState={setNumeroFormulario} />
-            : <button
-              className="flex w-full justify-center rounded bg-primary p-3 font-medium text-gray hover:bg-opacity-90"
-              onClick={() => setNumeroFormulario(0)}
-            >
-              Fin
-            </button>
+            : null
       }
+      <div className="flex justify-center gap-4 mt-4">
+        {
+          numeroFormulario > 0 &&
+          <button
+            onClick={() => setNumeroFormulario(numeroFormulario - 1)}
+            className="inline-flex items-center justify-center rounded-full bg-black px-10 py-4 text-center font-medium text-white hover:bg-opacity-90 lg:px-8 xl:px-10"
+          >
+            Regresar
+          </button>
+        }
+
+        {
+          numeroFormulario <= 1 &&
+          <button
+            onClick={() => setNumeroFormulario(numeroFormulario + 1)}
+            className="inline-flex items-center justify-center rounded-full bg-primary px-10 py-4 text-center font-medium text-white hover:bg-opacity-90 lg:px-8 xl:px-10"
+          >
+            Siguiente
+          </button>
+        }
+      </div>
     </>
   );
 }

@@ -46,16 +46,16 @@ const getFechaActual = () => new Date().toLocaleDateString();
 const getFechaHasta = (anios: number) => {
     const fecha = new Date();
     const formato = "dd/mm/yy";
+    const nuevoAnio = fecha.getFullYear() + Number(anios);
+
     return formato.replace('mm', fecha.getMonth().toString())
-    .replace('yy', (fecha.getFullYear() + anios).toString())
+    .replace('yy', nuevoAnio.toString())
 	.replace('dd', fecha.getDate().toString());
 }
 
-
-
 export const FormularioPolizaNueva = ({setState}: Props) => {
     
-    const [vigencia, setVigencia] = useState(1);
+    const [vigencia, setVigencia] = useState<number>(1);
     const [moneda, setMoneda] = useState(1);
     const [tarifa, setTarifa] = useState(1);
     const [politicaCompesacion, setPoliticaCompesacion] = useState(1);
@@ -192,12 +192,12 @@ export const FormularioPolizaNueva = ({setState}: Props) => {
                         ></textarea>
                     </div> */}
 
-                    <button 
+                    {/* <button 
                         className="flex w-full justify-center rounded bg-primary p-3 font-medium text-gray hover:bg-opacity-90"
                         onClick={() => setState(1)}
                     >
                         Guardar y continuar
-                    </button>
+                    </button> */}
                 </div>
             </form>
         </div>

@@ -53,13 +53,13 @@ export const FormularioAsegurado = ({ setState }: Props) => {
                 formAseg && <FormularioNuevoAsegurado />
             }
 
-            <button
+            {/* <button
                 type="button"
                 className="flex w-full justify-center rounded bg-primary p-3 font-medium text-gray hover:bg-opacity-90"
                 onClick={() => setState(3)}
             >
                 Guardar y continuar
-            </button>
+            </button> */}
         </div>
     )
 }
