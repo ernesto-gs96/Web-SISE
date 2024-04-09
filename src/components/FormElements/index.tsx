@@ -180,9 +180,9 @@ const FormElements = () => {
             </div>
             <div className="flex flex-col gap-5.5 p-6.5">
               <CheckboxOne />
-              <CheckboxTwo />
+              <CheckboxTwo id={"Checkboxtwo"} label={"Checkbox text"} />
               <CheckboxThree />
-              <CheckboxFour />
+              <CheckboxFour id={"CheckboxFour"} label={"Checkbox text"} />
               <CheckboxFive />
             </div>
           </div>

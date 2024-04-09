@@ -1,5 +1,8 @@
 import CheckboxTwo from "@/components/Checkboxes/CheckboxTwo";
 import SelectGroupTwo from "@/components/SelectGroup/SelectGroupTwo";
+import { useState } from "react";
+import RequiereInspeccion from "../Dialogos/MainDialog";
+import { Inspeccion } from "../Otros/Inspeccion";
 
 const amis = [
     { texto: "00001-NISSAN ALMERA 1.6 SG", valor: 1 },
@@ -35,6 +38,9 @@ const transmisiones = [
 ]
 
 export const FormularioVehiculo = () => {
+
+    const [requiereInspeccion, setrequiereInspeccion] = useState(true);
+
     return (
         <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
             <div className="border-b border-stroke px-6.5 pt-4 dark:border-strokedark">
@@ -219,8 +225,13 @@ export const FormularioVehiculo = () => {
                                 </div>
                                 <div className="flex flex-col gap-5.5 p-6.5 w-max">
                                     <CheckboxTwo label={"Requiere GPS"} id={"gps"} />
-                                    <CheckboxTwo label={"Requiere inspeccion"} id={"inspeccion"} />
+                                    <CheckboxTwo label={"Requiere inspeccion"} id={"inspeccion"} setState={setrequiereInspeccion}/>
                                     <CheckboxTwo label={"Unidad de salvamento"} id={"salvamento"} />
+                                </div>
+                                <div>
+                                    <RequiereInspeccion abrir={requiereInspeccion}>
+                                        <Inspeccion/>
+                                    </RequiereInspeccion>
                                 </div>
                             </div>
                         </div>
@@ -229,6 +240,7 @@ export const FormularioVehiculo = () => {
 
                 </div>
             </form>
+
         </div>
     )
 }

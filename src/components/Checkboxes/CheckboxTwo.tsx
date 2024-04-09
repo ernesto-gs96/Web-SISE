@@ -3,9 +3,10 @@ import { useState } from "react";
 interface Props {
   id: string,
   label: string,
+  setState?: Function
 }
 
-const CheckboxTwo = ({ id, label }: Props) => {
+const CheckboxTwo = ({ id, label, setState = ()=>{} }: Props) => {
   const [isChecked, setIsChecked] = useState<boolean>(false);
 
   return (
@@ -21,6 +22,7 @@ const CheckboxTwo = ({ id, label }: Props) => {
             className="sr-only"
             onChange={() => {
               setIsChecked(!isChecked);
+              setState(!isChecked);
             }}
           />
           <div
