@@ -24,7 +24,7 @@ export default function EmitirPolizaPage() {
 
   return (
     <>
-      <Breadcrumb pageName={datosCaptura} />
+      {/* <Breadcrumb pageName={datosCaptura} /> */}
       {
         numeroFormulario == 0
           ? <FormularioPolizaNueva setState={setNumeroFormulario} />

@@ -9,7 +9,7 @@ interface Props {
 
 const DatePickerOne = (props: Props) => {
 
-  const { label, fecha, activio } = props;
+  const { label, fecha, activio = true } = props;
 
   useEffect(() => {
     // Init flatpickr

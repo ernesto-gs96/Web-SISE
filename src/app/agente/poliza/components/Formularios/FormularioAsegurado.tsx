@@ -34,16 +34,23 @@ export const FormularioAsegurado = ({ setState }: Props) => {
                             />
                         </div>
 
-                        <div className="col-span-1 flex flex-col-reverse">
+                        <div className="col-span-1 flex justify-center items-center gap-4 pt-6">
                             <button
                                 type="button"
-                                className="flex w-full justify-center rounded bg-primary p-3 font-medium text-gray hover:bg-opacity-90"
+                                className="inline-flex items-center justify-center rounded-full bg-black px-10 py-4 text-center font-medium text-white hover:bg-opacity-90 lg:px-8 xl:px-10"
                                 onClick={() => setFormAseg(true)}
                             >
-                                Nuevo asegurado
+                                Buscar
                             </button>
-                        </div>
+                            <button
+                                type="button"
+                                className="inline-flex items-center justify-center rounded-full bg-meta-3 px-10 py-4 text-center font-medium text-white hover:bg-opacity-90 lg:px-8 xl:px-10"
+                                onClick={() => setFormAseg(true)}
+                            >
+                                Nuevo
+                            </button>
 
+                        </div>
 
                     </div>
                 </div>
