@@ -17,7 +17,7 @@ interface Props {
 
 const SelectGroupTwo = (props: Props) => {
 
-  const { label, opciones, opcion, activo, icono, setOpcion } = props;
+  const { label, opciones, opcion, activo=true, icono, setOpcion } = props;
 
   const [selectedOption, setSelectedOption] = useState<string>("");
   const [isOptionSelected, setIsOptionSelected] = useState<boolean>(false);

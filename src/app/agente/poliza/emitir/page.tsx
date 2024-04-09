@@ -5,6 +5,7 @@ import { Metadata } from "next";
 import { FormularioAsegurado } from "../components/Formularios/FormularioAsegurado";
 import { FormularioPolizaNueva } from "../components/Formularios/FormularioPolizaNueva";
 import { useEffect, useState } from "react";
+import { FormularioVehiculo } from "../components/Formularios/FormularioVehiculo";
 
 // export const metadata: Metadata = {
 //   title: "Emicion de poliza",
@@ -30,6 +31,8 @@ export default function EmitirPolizaPage() {
           ? <FormularioPolizaNueva setState={setNumeroFormulario} />
           : numeroFormulario == 1
             ? <FormularioAsegurado setState={setNumeroFormulario} />
+            : numeroFormulario == 2
+            ? <FormularioVehiculo/>
             : null
       }
       <div className="flex justify-center gap-4 mt-4">
@@ -44,7 +47,7 @@ export default function EmitirPolizaPage() {
         }
 
         {
-          numeroFormulario <= 1 &&
+          numeroFormulario <= 2 &&
           <button
             onClick={() => setNumeroFormulario(numeroFormulario + 1)}
             className="inline-flex items-center justify-center rounded-full bg-primary px-10 py-4 text-center font-medium text-white hover:bg-opacity-90 lg:px-8 xl:px-10"
