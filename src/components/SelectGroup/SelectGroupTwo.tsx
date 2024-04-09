@@ -34,7 +34,7 @@ const SelectGroupTwo = (props: Props) => {
 
       <div className="relative z-20 bg-white dark:bg-form-input">
         <span className="absolute left-4 top-1/2 z-30 -translate-y-1/2">
-          { icono && icono}
+          {icono && icono}
         </span>
 
         <select
@@ -45,14 +45,14 @@ const SelectGroupTwo = (props: Props) => {
             changeTextColor();
             setOpcion(e.target.value);
           }}
-          className={`relative z-20 w-full appearance-none rounded border border-stroke bg-transparent px-12 py-3 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input ${
-            isOptionSelected ? "text-black dark:text-white" : ""
-          }`}
+          className={`relative z-20 w-full appearance-none rounded border border-stroke bg-transparent px-12 py-3 outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input ${isOptionSelected ? "text-black dark:text-white" : ""
+            }`}
+          disabled={!activo}
         >
           <option value="" disabled className="text-body dark:text-bodydark">
             {label}
           </option>
-          { opciones.map( (opcion, index) => 
+          {opciones.map((opcion, index) =>
             <option key={`${opcion.texto}-${index}`} value={opcion.valor} className="text-body dark:text-bodydark">
               {opcion.texto}
             </option>

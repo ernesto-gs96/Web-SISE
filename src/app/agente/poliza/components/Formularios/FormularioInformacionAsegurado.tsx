@@ -1,6 +1,12 @@
 import DatePickerTwo from "@/components/FormElements/DatePicker/DatePickerTwo"
 import SelectGroupTwo from "@/components/SelectGroup/SelectGroupTwo"
 
+interface Props {
+    titulo?: string,
+    accion?: string,
+    activo?: boolean,
+}
+
 const tipoPersonas = [
     { texto: "Fisica", valor: 1 },
     { texto: "Moral", valor: 2 },
@@ -22,24 +28,26 @@ const estados = [
     { texto: "Oaxaca", valor: 2 },
 ]
 
-export const FormularioNuevoAsegurado = () => {
+export const FormularioInformacionAsegurado = ({ titulo, accion, activo = true }: Props) => {
     return (
         <form action="#">
             <div className="py-2 px-6">
+
+                <h2 className="font-bold text-3xl text-center mb-4">{titulo}</h2>
 
                 <h3 className="font-bold text-2xl text-center mb-4">Información personal</h3>
                 <div className="grid grid-cols-3 gap-6 mb-6">
 
                     <div className="col-span-1">
-                        <SelectGroupTwo label={"Tipo de persona"} opciones={tipoPersonas} setOpcion={() => { }} />
+                        <SelectGroupTwo label={"Tipo de persona"} opciones={tipoPersonas} setOpcion={() => { }} activo={activo} />
                     </div>
 
                     <div className="col-span-1">
-                        <SelectGroupTwo label={"Nacionalidad"} opciones={nacionalidades} setOpcion={() => { }} />
+                        <SelectGroupTwo label={"Nacionalidad"} opciones={nacionalidades} setOpcion={() => { }} activo={activo} />
                     </div>
 
                     <div className="col-span-1">
-                        <SelectGroupTwo label={"Sexo"} opciones={sexos} setOpcion={() => { }} />
+                        <SelectGroupTwo label={"Sexo"} opciones={sexos} setOpcion={() => { }} activo={activo} />
                     </div>
 
                     <div className="col-span-1">
@@ -51,6 +59,7 @@ export const FormularioNuevoAsegurado = () => {
                             name="nombre"
                             placeholder="Nombre(s)"
                             className="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                            disabled={!activo}
                         />
                     </div>
 
@@ -63,6 +72,7 @@ export const FormularioNuevoAsegurado = () => {
                             name="apellidoP"
                             placeholder="Apellido paterno"
                             className="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                            disabled={!activo}
                         />
                     </div>
 
@@ -75,11 +85,12 @@ export const FormularioNuevoAsegurado = () => {
                             name="apellidoM"
                             placeholder="Apellido materno"
                             className="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                            disabled={!activo}
                         />
                     </div>
 
                     <div className="col-span-1">
-                        <DatePickerTwo label={"Fecha de nacimiento"} />
+                        <DatePickerTwo label={"Fecha de nacimiento"} activo={activo}/>
                     </div>
 
                     <div className="col-span-1">
@@ -91,6 +102,7 @@ export const FormularioNuevoAsegurado = () => {
                             name="curp"
                             placeholder="CURP"
                             className="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                            disabled={!activo}
                         />
                     </div>
 
@@ -103,6 +115,7 @@ export const FormularioNuevoAsegurado = () => {
                             name="rfc"
                             placeholder="RFC"
                             className="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                            disabled={!activo}
                         />
                     </div>
 
@@ -115,6 +128,7 @@ export const FormularioNuevoAsegurado = () => {
                             type="email"
                             placeholder="Correo electronico"
                             className="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                            disabled={!activo}
                         />
                     </div>
 
@@ -127,6 +141,7 @@ export const FormularioNuevoAsegurado = () => {
                             name="celular"
                             placeholder="Celular"
                             className="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                            disabled={!activo}
                         />
                     </div>
 
@@ -139,6 +154,7 @@ export const FormularioNuevoAsegurado = () => {
                             name="telefoCasa"
                             placeholder="Telefono casa"
                             className="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                            disabled={!activo}
                         />
                     </div>
 
@@ -156,6 +172,7 @@ export const FormularioNuevoAsegurado = () => {
                             name="calle"
                             placeholder="Calle"
                             className="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                            disabled={!activo}
                         />
                     </div>
 
@@ -170,6 +187,7 @@ export const FormularioNuevoAsegurado = () => {
                                 name="numeroInterior"
                                 placeholder="Número interior"
                                 className="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                                disabled={!activo}
                             />
                         </div>
 
@@ -182,6 +200,7 @@ export const FormularioNuevoAsegurado = () => {
                                 name="numeroExterior"
                                 placeholder="Número exterior"
                                 className="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                                disabled={!activo}
                             />
                         </div>
 
@@ -194,6 +213,7 @@ export const FormularioNuevoAsegurado = () => {
                                 name="codigoPostal"
                                 placeholder="Código postal"
                                 className="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                                disabled={!activo}
                             />
                         </div>
                     </div>
@@ -207,6 +227,7 @@ export const FormularioNuevoAsegurado = () => {
                             name="colonia"
                             placeholder="Colonia"
                             className="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                            disabled={!activo}
                         />
                     </div>
 
@@ -219,11 +240,12 @@ export const FormularioNuevoAsegurado = () => {
                             name="Municipio"
                             placeholder="Municipio"
                             className="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                            disabled={!activo}
                         />
                     </div>
 
                     <div className="col-span-1">
-                        <SelectGroupTwo label={"Estado"} opciones={estados} setOpcion={() => { }} />
+                        <SelectGroupTwo label={"Estado"} opciones={estados} setOpcion={() => { }} activo={activo} />
                     </div>
 
                     <div className="col-span-3">
@@ -234,19 +256,23 @@ export const FormularioNuevoAsegurado = () => {
                             rows={6}
                             placeholder="Referencias"
                             className="w-full rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                            disabled={!activo}
                         ></textarea>
                     </div>
 
                 </div>
 
-                <div className="flex justify-center items-center my-4">
-                    <button
-                        type="button"
-                        className="rounded-full bg-meta-3 px-10 py-4 text-center font-medium text-white hover:bg-opacity-90 lg:px-8 xl:px-10"
-                    >
-                        Registrar
-                    </button>
-                </div>
+                {
+                    accion === "registrar" &&
+                    <div className="flex justify-center items-center my-4">
+                        <button
+                            type="button"
+                            className="rounded-full bg-meta-3 px-10 py-4 text-center font-medium text-white hover:bg-opacity-90 lg:px-8 xl:px-10"
+                        >
+                            Registrar
+                        </button>
+                    </div>
+                }
 
             </div>
         </form>

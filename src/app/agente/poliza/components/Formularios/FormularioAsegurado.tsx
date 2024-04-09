@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react"
-import { FormularioNuevoAsegurado } from "./FormularioNuevoAsegurado";
+import { FormularioInformacionAsegurado } from "./FormularioInformacionAsegurado";
 
 interface Props {
     setState: Function,
@@ -10,6 +10,7 @@ interface Props {
 export const FormularioAsegurado = ({ setState }: Props) => {
 
     const [formAseg, setFormAseg] = useState<boolean>(false);
+    const [formResultado, setFormResultado] = useState<boolean>(false);
 
     return (
         <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
@@ -38,14 +39,20 @@ export const FormularioAsegurado = ({ setState }: Props) => {
                             <button
                                 type="button"
                                 className="inline-flex items-center justify-center rounded-full bg-black px-10 py-4 text-center font-medium text-white hover:bg-opacity-90 lg:px-8 xl:px-10"
-                                onClick={() => setFormAseg(true)}
+                                onClick={() => {
+                                    setFormAseg(false)
+                                    setFormResultado(true)
+                                }}
                             >
                                 Buscar
                             </button>
                             <button
                                 type="button"
                                 className="inline-flex items-center justify-center rounded-full bg-meta-3 px-10 py-4 text-center font-medium text-white hover:bg-opacity-90 lg:px-8 xl:px-10"
-                                onClick={() => setFormAseg(true)}
+                                onClick={() => {
+                                    setFormAseg(true)
+                                    setFormResultado(false)
+                                }}
                             >
                                 Nuevo
                             </button>
@@ -57,16 +64,12 @@ export const FormularioAsegurado = ({ setState }: Props) => {
             </form>
 
             {
-                formAseg && <FormularioNuevoAsegurado />
+                formAseg && <FormularioInformacionAsegurado titulo={"Registrar nuevo asegurado"} accion={"registrar"}/>
             }
 
-            {/* <button
-                type="button"
-                className="flex w-full justify-center rounded bg-primary p-3 font-medium text-gray hover:bg-opacity-90"
-                onClick={() => setState(3)}
-            >
-                Guardar y continuar
-            </button> */}
+            {
+                formResultado && <FormularioInformacionAsegurado titulo={"Asegurado encontrado"} activo={false} />
+            }
         </div>
     )
 }
