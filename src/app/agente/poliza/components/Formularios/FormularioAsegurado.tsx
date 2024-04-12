@@ -64,11 +64,9 @@ export const FormularioAsegurado = ({ setState }: Props) => {
             </form>
 
             {
-                formAseg && <FormularioInformacionAsegurado titulo={"Registrar nuevo asegurado"} accion={"registrar"}/>
-            }
-
-            {
-                formResultado && <FormularioInformacionAsegurado titulo={"Asegurado encontrado"} activo={false} />
+                formResultado
+                ? <FormularioInformacionAsegurado titulo={"Asegurado encontrado"} activo={false} />
+                : <FormularioInformacionAsegurado titulo={"Registrar nuevo asegurado"} accion={"registrar"}/>
             }
         </div>
     )
