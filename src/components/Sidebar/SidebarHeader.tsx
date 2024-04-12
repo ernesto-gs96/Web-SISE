@@ -30,7 +30,7 @@ export const SidebarHeader = () => {
                 onClick={() => dispatch(cambiarSidebarOpen())}
                 aria-controls="sidebar"
                 aria-expanded={sidebarOpen}
-                className="block lg:hidden"
+                className="block 2xl:hidden"
             >
                 <svg
                     className="fill-current"
