@@ -176,7 +176,7 @@ export const FormularioInformacionAsegurado = ({ titulo, accion, activo = true }
                         />
                     </div>
 
-                    <div className="col-span-2 flex gap-4">
+                    <div className="col-span-2 flex justify-between md:gap-4">
 
                         <div>
                             <label className="mb-3 block text-sm font-medium text-black dark:text-white">

@@ -1,171 +1,74 @@
+import SwitcherThree from "@/components/Switchers/SwitcherThree";
+import { IoCheckmarkCircleOutline, IoCloseCircleOutline } from "react-icons/io5";
+
 const paquetes = [
     {
         id: "01",
         nombre: "Básico",
-        precio: 100,
         descripcion: "Descripción del paquete básico.",
-        limitacionesValores: ["1 por contrato", "20 %"],
-        limitacionesIncluye: [true,true,true,true,false,false]
+        color: "bg-black",
+        coberturasAmparadas: [true, true, true, true, false, false]
     },
     {
         id: "02",
         nombre: "Limitado",
-        precio: 200,
         descripcion: "Descripción del paquete limitado.",
-        limitacionesValores: ["3 por contrato", "15 %"],
-        limitacionesIncluye: [true,true,true,true,true,false]
+        color: "bg-[#13C296]",
+        coberturasAmparadas: [true, true, true, true, true, false]
     },
     {
         id: "03",
         nombre: "Amplia",
-        precio: 400,
         descripcion: "Descripción del paquete Amplia.",
-        limitacionesValores: ["5 por contrato", "10 %"],
-        limitacionesIncluye: [true,true,true,true,true,true]
+        color: "bg-primary",
+        coberturasAmparadas: [true, true, true, true, true, true]
     }
 ]
 
-const limitacionesValores = ["Gruas","Deducible hasta"];
-const limitacionesIncluye = ["RCD a terceros","Gastos legales","GM ocupantes","Asistencia Vial","Robot total","Daños materias"]
+const coberturas = ["RCD a terceros", "Gastos legales", "GM ocupantes", "Asistencia Vial", "Robot total", "Daños materias"]
 
 export const FormularioPaquete = () => {
     return (
-        <div className="flex flex-col gap-5 md:gap-7 2xl:gap-10">
-            {/* <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-3 2xl:gap-7.5">
-                <div className="relative rounded-sm border border-stroke bg-white p-6 shadow-default dark:border-strokedark dark:bg-boxdark md:p-9 xl:p-11.5">
-                    <span className="mb-2.5 block text-title-sm2 font-bold text-black dark:text-white">
-                        Starter
-                    </span>
-                    <h3>
-                        <span className="text-xl font-medium text-black dark:text-white">
-                            $
-                        </span>
-                        <span className="text-title-xxl2 font-bold text-black dark:text-white">
-                            25.00
-                        </span>
-                        <span className="font-medium"> Per Month</span>
-                    </h3>
-                    <h4 className="mb-5 mt-7.5 text-lg font-medium text-black dark:text-white">
-                        Features
-                    </h4>
-                    <ul className="flex flex-col gap-3.5">
-                        <li className="font-medium">Get Figma Source File</li>
-                        <li className="font-medium">Use on Unlimited Projects</li>
-                        <li className="font-medium">Personal &amp; Commercial Use</li>
-                        <li className="font-medium">Downloadable Offline Files</li>
-                        <li className="font-medium">Lifetime Free Updates</li>
-                    </ul>
-                    <button className="mt-9 flex rounded-md border border-primary px-9 py-3 font-medium text-primary hover:bg-primary hover:text-white">
-                        Purchase Now
-                    </button>
-                </div>
-                <div className="relative rounded-sm border border-stroke bg-white p-6 shadow-default dark:border-strokedark dark:bg-boxdark md:p-9 xl:p-11.5">
-                    <span className="absolute -right-1 top-3.5">
-                        <svg
-                            width={109}
-                            height={34}
-                            viewBox="0 0 109 34"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                        >
-                            <path
-                                d="M24 0L106 0C107.657 0 109 1.34315 109 3V30L24 30L24 0Z"
-                                fill="#3C50E0"
-                            />
-                            <foreignObject x={24} y={0} width={81} height={30}>
-                                <div>
-                                    <div className="mt-1 text-center font-satoshi text-sm font-medium text-white">
-                                        Best Value
-                                    </div>
-                                </div>
-                            </foreignObject>
-                            <path d="M0 0H24V30H0L19 15L0 0Z" fill="#3C50E0" />
-                            <path d="M105 34L109 30H105V34Z" fill="#2539C8" />
-                        </svg>
-                    </span>
-                    <span className="mb-2.5 block text-title-sm2 font-bold text-black dark:text-white">
-                        Basic
-                    </span>
-                    <h3>
-                        <span className="text-xl font-medium text-black dark:text-white">
-                            $
-                        </span>
-                        <span className="text-title-xxl2 font-bold text-black dark:text-white">
-                            59.00
-                        </span>
-                        <span className="font-medium"> Per Month</span>
-                    </h3>
-                    <h4 className="mb-5 mt-7.5 text-lg font-medium text-black dark:text-white">
-                        Features
-                    </h4>
-                    <ul className="flex flex-col gap-3.5">
-                        <li className="font-medium">Get Figma Source File</li>
-                        <li className="font-medium">Use on Unlimited Projects</li>
-                        <li className="font-medium">Personal &amp; Commercial Use</li>
-                        <li className="font-medium">Downloadable Offline Files</li>
-                        <li className="font-medium">Lifetime Free Updates</li>
-                    </ul>
-                    <button className="mt-9 flex rounded-md border border-primary px-9 py-3 font-medium text-primary hover:bg-primary hover:text-white">
-                        Purchase Now
-                    </button>
-                </div>
-                <div className="relative rounded-sm border border-stroke bg-white p-6 shadow-default dark:border-strokedark dark:bg-boxdark md:p-9 xl:p-11.5">
-                    <span className="mb-2.5 block text-title-sm2 font-bold text-black dark:text-white">
-                        Premium
-                    </span>
-                    <h3>
-                        <span className="text-xl font-medium text-black dark:text-white">
-                            $
-                        </span>
-                        <span className="text-title-xxl2 font-bold text-black dark:text-white">
-                            99.00
-                        </span>
-                        <span className="font-medium"> Per Month</span>
-                    </h3>
-                    <h4 className="mb-5 mt-7.5 text-lg font-medium text-black dark:text-white">
-                        Features
-                    </h4>
-                    <ul className="flex flex-col gap-3.5">
-                        <li className="font-medium">Get Figma Source File</li>
-                        <li className="font-medium">Use on Unlimited Projects</li>
-                        <li className="font-medium">Personal &amp; Commercial Use</li>
-                        <li className="font-medium">Downloadable Offline Files</li>
-                        <li className="font-medium">Lifetime Free Updates</li>
-                    </ul>
-                    <button className="mt-9 flex rounded-md border border-primary px-9 py-3 font-medium text-primary hover:bg-primary hover:text-white">
-                        Purchase Now
-                    </button>
-                </div>
-            </div> */}
-            <div className="relative z-10 overflow-hidden rounded-sm border border-stroke bg-white p-11 shadow-default dark:border-strokedark dark:bg-boxdark">
-                <div className="w-full overflow-x-auto">
-                    <table className="table-auto">
+        <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
+            <div className="border-b border-stroke px-6.5 py-4 dark:border-strokedark">
+                <h2 className="font-medium text-black dark:text-white">
+                    Paquete y coberturas
+                </h2>
+            </div>
+            <div className="p-11">
+                {/* <div className="w-full overflow-x-auto"> */}
+                    <table className="table-auto w-full">
                         <thead>
                             <tr>
-                                <th className="w-1/4 min-w-[200px] px-5" />
-                                <th className="w-1/4 min-w-[200px] px-5">
-                                    <div className="mb-10 text-left">
-                                        <span className="mb-3.5 block text-xl font-bold text-black dark:text-white">
-                                            Básico
-                                        </span>
-                                        <h4 className="mb-4">
+                                <th className="w-1/4 px-5" />
+                                {
+                                    paquetes.map(paquete => (
+                                        <th key={"Paquete-" + paquete.id} className="w-1/4 px-5">
+                                            <div className="mb-10 text-left transition ease-in-out delay-15 hover:-translate-y-1 hover:scale-105 duration-300">
+                                                <span className="text-center mb-3.5 block text-2xl font-bold text-black dark:text-white">
+                                                    {paquete.nombre}
+                                                </span>
+                                                {/* <h4 className="mb-4">
                                             <span className="text-[28px] font-bold text-black dark:text-white lg:text-[32px]">
                                                 $100
-                                            </span>
-                                            {/* <span className="font-medium">Anual</span> */}
-                                        </h4>
-                                        <p className="mb-6 text-base font-medium">
+                                            </span> */}
+                                                {/* <span className="font-medium">Anual</span> */}
+                                                {/* </h4> */}
+                                                {/* <p className="mb-6 text-base font-medium">
                                             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non, adipisci.
-                                        </p>
-                                        <a
-                                            className="block w-full rounded-md bg-primary p-3 text-center font-medium text-white transition hover:bg-opacity-90"
-                                            href="#"
-                                        >
-                                            Elegir
-                                        </a>
-                                    </div>
-                                </th>
-                                <th className="w-1/4 min-w-[200px] px-5">
+                                        </p> */}
+                                                <a
+                                                    className={`block w-full rounded-md ${paquete.color} p-3 text-center font-medium text-white transition hover:bg-opacity-90`}
+                                                    href="#"
+                                                >
+                                                    Elegir
+                                                </a>
+                                            </div>
+                                        </th>
+                                    ))
+                                }
+
+                                {/* <th className="w-1/4 min-w-[200px] px-5 hover:shadow-2xl hover:shadow-[#13C296]">
                                     <div className="mb-10 text-left">
                                         <span className="mb-3.5 block text-xl font-bold text-black dark:text-white">
                                             Limitado
@@ -174,7 +77,6 @@ export const FormularioPaquete = () => {
                                             <span className="text-[28px] font-bold text-black dark:text-white lg:text-[32px]">
                                                 $200
                                             </span>
-                                            {/* <span className="font-medium">Anual</span> */}
                                         </h4>
                                         <p className="mb-6 font-medium">
                                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, voluptatem!
@@ -187,16 +89,15 @@ export const FormularioPaquete = () => {
                                         </a>
                                     </div>
                                 </th>
-                                <th className="w-1/4 min-w-[200px] px-5">
+                                <th className="w-1/4 min-w-[200px] px-5 hover:shadow-2xl hover:shadow-primary">
                                     <div className="mb-10 text-left">
                                         <span className="mb-3.5 block text-xl font-bold text-black dark:text-white">
-                                            Amplia 
+                                            Amplia
                                         </span>
                                         <h4 className="mb-4">
                                             <span className="text-[28px] font-bold text-black dark:text-white lg:text-[32px]">
                                                 $400
                                             </span>
-                                            {/* <span className="font-medium">Anual</span> */}
                                         </h4>
                                         <p className="mb-6 font-medium">
                                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, sed?
@@ -208,47 +109,77 @@ export const FormularioPaquete = () => {
                                             Elegir
                                         </a>
                                     </div>
-                                </th>
+                                </th> */}
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td className="border-t border-stroke px-7 py-5 dark:border-strokedark">
-                                    <h5 className="font-medium text-black dark:text-white">
-                                        Incluye
+                                    <h5 className="font-bold text-black dark:text-white">
+                                        Cobertura
                                     </h5>
                                 </td>
                                 <td className="border-t border-stroke px-7 py-5 dark:border-strokedark">
-                                    <h5 className="text-center font-medium text-black dark:text-white">
-                                        Limitaciones
+                                    <h5 className="text-center font-bold text-black dark:text-white">
+                                        Amparada
                                     </h5>
                                 </td>
                                 <td className="border-t border-stroke px-7 py-5 dark:border-strokedark">
-                                    <h5 className="text-center font-medium text-black dark:text-white">
-                                        Limitaciones
+                                    <h5 className="text-center font-bold text-black dark:text-white">
+                                        Suma asegurada
                                     </h5>
                                 </td>
                                 <td className="border-t border-stroke px-7 py-5 dark:border-strokedark">
-                                    <h5 className="text-center font-medium text-black dark:text-white">
-                                        Limitaciones
+                                    <h5 className="text-center font-bold text-black dark:text-white">
+                                        Deducible
                                     </h5>
                                 </td>
                             </tr>
-                            <tr>
-                                <td className="border-t border-stroke px-7 py-5 dark:border-strokedark">
-                                    <p className="font-medium">Gruas</p>
-                                </td>
-                                <td className="border-t border-stroke px-7 py-5 dark:border-strokedark">
-                                    <p className="text-center font-medium">1 por contrato</p>
-                                </td>
-                                <td className="border-t border-stroke px-7 py-5 dark:border-strokedark">
-                                    <p className="text-center font-medium">3 por contrato</p>
-                                </td>
-                                <td className="border-t border-stroke px-7 py-5 dark:border-strokedark">
-                                    <p className="text-center font-medium">5 por contrato</p>
-                                </td>
-                            </tr>
-                            <tr>
+                            {
+                                coberturas.map((cobertura, index) => {
+
+                                    const amparada = paquetes[0].coberturasAmparadas[index];
+                                    const amparada1 = paquetes[1].coberturasAmparadas[index];
+                                    const amparada2 = paquetes[2].coberturasAmparadas[index];
+                                    const color = amparada ? "green" : "red";
+                                    
+                                    return (
+                                    <tr key={"Cobertura-"+cobertura}>
+                                        <td className="border-t border-stroke px-7 py-5 dark:border-strokedark">
+                                            <p className="font-medium">{cobertura}</p>
+                                        </td>
+                                        <td className="border-t border-stroke px-7 py-5 dark:border-strokedark">
+                                            <div className="flex justify-center">
+                                                {
+                                                    amparada
+                                                        ? <IoCheckmarkCircleOutline size={30} color={color}/>
+                                                        : <IoCloseCircleOutline size={30} color={color}/>
+                                                }
+                                            </div>
+                                        </td>
+                                        <td className="border-t border-stroke px-7 py-5 dark:border-strokedark">
+                                            <div className="flex justify-center">
+                                                {
+                                                    amparada1
+                                                        ? <IoCheckmarkCircleOutline size={30} color={amparada1 ? "green" : "red"}/>
+                                                        : <IoCloseCircleOutline size={30} color={amparada1 ? "green" : "red"}/>
+                                                }
+                                            </div>
+                                        </td>
+                                        <td className="border-t border-stroke px-7 py-5 dark:border-strokedark">
+                                            <div className="flex justify-center">
+                                                {
+                                                    amparada2
+                                                        ? <IoCheckmarkCircleOutline size={30} color={amparada2 ? "green" : "red"}/>
+                                                        : <IoCloseCircleOutline size={30} color={amparada2 ? "green" : "red"}/>
+                                                }
+                                            </div>
+                                        </td>
+                                    </tr>
+                                )})
+                            }
+
+                            {/* <tr>
                                 <td className="border-t border-stroke px-7 py-5 dark:border-strokedark">
                                     <p className="font-medium">Deducible hasta</p>
                                 </td>
@@ -261,7 +192,7 @@ export const FormularioPaquete = () => {
                                 <td className="border-t border-stroke px-7 py-5 dark:border-strokedark">
                                     <p className="text-center font-medium">10 %</p>
                                 </td>
-                            </tr>
+                            </tr> */}
                             {/* <tr>
                                 <td className="border-t border-stroke px-7 py-5 dark:border-strokedark">
                                     <p className="font-medium">Email Support</p>
@@ -276,7 +207,7 @@ export const FormularioPaquete = () => {
                                     <p className="text-center font-medium">6 Months</p>
                                 </td>
                             </tr> */}
-                            <tr>
+                            {/* <tr>
                                 <td className="border-t border-stroke px-7 py-5 dark:border-strokedark">
                                     <p className="font-medium">RCD a Terceros</p>
                                 </td>
@@ -340,8 +271,8 @@ export const FormularioPaquete = () => {
                                         </svg>
                                     </p>
                                 </td>
-                            </tr>
-                            <tr>
+                            </tr> */}
+                            {/* <tr>
                                 <td className="border-t border-stroke px-7 py-5 dark:border-strokedark">
                                     <p className="font-medium">Gastos legales</p>
                                 </td>
@@ -405,8 +336,8 @@ export const FormularioPaquete = () => {
                                         </svg>
                                     </p>
                                 </td>
-                            </tr>
-                            <tr>
+                            </tr> */}
+                            {/* <tr>
                                 <td className="border-t border-stroke px-7 py-5 dark:border-strokedark">
                                     <p className="font-medium">GM ocupantes</p>
                                 </td>
@@ -470,8 +401,8 @@ export const FormularioPaquete = () => {
                                         </svg>
                                     </p>
                                 </td>
-                            </tr>
-                            <tr>
+                            </tr> */}
+                            {/* <tr>
                                 <td className="border-t border-stroke px-7 py-5 dark:border-strokedark">
                                     <p className="font-medium">Asistencia vial</p>
                                 </td>
@@ -535,8 +466,8 @@ export const FormularioPaquete = () => {
                                         </svg>
                                     </p>
                                 </td>
-                            </tr>
-                            <tr>
+                            </tr> */}
+                            {/* <tr>
                                 <td className="border-t border-stroke px-7 py-5 dark:border-strokedark">
                                     <p className="font-medium">Robo total</p>
                                 </td>
@@ -600,8 +531,8 @@ export const FormularioPaquete = () => {
                                         </svg>
                                     </p>
                                 </td>
-                            </tr>
-                            <tr>
+                            </tr> */}
+                            {/* <tr>
                                 <td className="border-t border-stroke px-7 py-5 dark:border-strokedark">
                                     <p className="font-medium">Daños materiales</p>
                                 </td>
@@ -665,11 +596,11 @@ export const FormularioPaquete = () => {
                                         </svg>
                                     </p>
                                 </td>
-                            </tr>
+                            </tr> */}
                         </tbody>
                     </table>
-                </div>
-                <div>
+                {/* </div> */}
+                {/* <div>
                     <span className="absolute left-0 top-0 -z-1">
                         <svg
                             width={213}
@@ -928,7 +859,7 @@ export const FormularioPaquete = () => {
                             />
                         </svg>
                     </span>
-                </div>
+                </div> */}
             </div>
         </div>
 
