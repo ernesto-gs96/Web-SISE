@@ -6,7 +6,7 @@ import { FormularioAsegurado } from "../components/Formularios/FormularioAsegura
 import { FormularioPolizaNueva } from "../components/Formularios/FormularioPolizaNueva";
 import { useEffect, useState } from "react";
 import { FormularioVehiculo } from "../components/Formularios/FormularioVehiculo";
-import { FormularioPaquete } from "../components/Formularios/FormularioPaquete";
+import { FormularioPaquete } from "../components/Formularios/Fomulario Paquetes/FormularioPaquete";
 
 // export const metadata: Metadata = {
 //   title: "Emicion de poliza",
