@@ -1,4 +1,7 @@
+'use client';
+
 import SwitcherThree from "@/components/Switchers/SwitcherThree";
+import { useState } from "react";
 import { IoCheckmarkCircleOutline, IoCloseCircleOutline } from "react-icons/io5";
 
 const paquetes = [
@@ -25,9 +28,12 @@ const paquetes = [
     }
 ]
 
-const coberturas = ["RCD a terceros", "Gastos legales", "GM ocupantes", "Asistencia Vial", "Robot total", "Daños materias"]
+const coberturas = ["RCD a terceros", "Gastos legales", "GM ocupantes", "Asistencia Vial", "Robo total", "Daños materias"]
 
 export const FormularioPaquete = () => {
+
+    const [paqueteSeleccionado, setpaqueteSeleccionado] = useState<string>('');
+
     return (
         <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
             <div className="border-b border-stroke px-6.5 py-4 dark:border-strokedark">
@@ -37,38 +43,41 @@ export const FormularioPaquete = () => {
             </div>
             <div className="p-11">
                 {/* <div className="w-full overflow-x-auto"> */}
-                    <table className="table-auto w-full">
-                        <thead>
-                            <tr>
-                                <th className="w-1/4 px-5" />
-                                {
-                                    paquetes.map(paquete => (
-                                        <th key={"Paquete-" + paquete.id} className="w-1/4 px-5">
-                                            <div className="mb-10 text-left transition ease-in-out delay-15 hover:-translate-y-1 hover:scale-105 duration-300">
-                                                <span className="text-center mb-3.5 block text-2xl font-bold text-black dark:text-white">
-                                                    {paquete.nombre}
-                                                </span>
-                                                {/* <h4 className="mb-4">
+                <table className="table-auto w-full">
+                    <thead>
+                        {
+                            paqueteSeleccionado === ''
+                                ? <tr>
+                                    <th className="w-1/4 px-5" />
+                                    {
+                                        paquetes.map(paquete => (
+                                            <th key={"Paquete-" + paquete.id} className="w-1/4 px-5">
+                                                <div className="mb-10 text-center transition ease-in-out delay-15 hover:-translate-y-1 hover:scale-105 duration-300">
+                                                    <span className="mb-3.5 block text-2xl font-bold text-black dark:text-white">
+                                                        {paquete.nombre}
+                                                    </span>
+                                                    {/* <h4 className="mb-4">
                                             <span className="text-[28px] font-bold text-black dark:text-white lg:text-[32px]">
                                                 $100
                                             </span> */}
-                                                {/* <span className="font-medium">Anual</span> */}
-                                                {/* </h4> */}
-                                                {/* <p className="mb-6 text-base font-medium">
+                                                    {/* <span className="font-medium">Anual</span> */}
+                                                    {/* </h4> */}
+                                                    {/* <p className="mb-6 text-base font-medium">
                                             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non, adipisci.
                                         </p> */}
-                                                <a
-                                                    className={`block w-full rounded-md ${paquete.color} p-3 text-center font-medium text-white transition hover:bg-opacity-90`}
-                                                    href="#"
-                                                >
-                                                    Elegir
-                                                </a>
-                                            </div>
-                                        </th>
-                                    ))
-                                }
+                                                    <button
+                                                        type="button"
+                                                        className={`block w-full rounded-md ${paquete.color} p-3 text-center font-medium text-white transition hover:bg-opacity-90`}
+                                                        onClick={() => setpaqueteSeleccionado(paquete.id)}
+                                                    >
+                                                        Elegir
+                                                    </button>
+                                                </div>
+                                            </th>
+                                        ))
+                                    }
 
-                                {/* <th className="w-1/4 min-w-[200px] px-5 hover:shadow-2xl hover:shadow-[#13C296]">
+                                    {/* <th className="w-1/4 min-w-[200px] px-5 hover:shadow-2xl hover:shadow-[#13C296]">
                                     <div className="mb-10 text-left">
                                         <span className="mb-3.5 block text-xl font-bold text-black dark:text-white">
                                             Limitado
@@ -110,76 +119,105 @@ export const FormularioPaquete = () => {
                                         </a>
                                     </div>
                                 </th> */}
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td className="border-t border-stroke px-7 py-5 dark:border-strokedark">
-                                    <h5 className="font-bold text-black dark:text-white">
-                                        Cobertura
-                                    </h5>
-                                </td>
-                                <td className="border-t border-stroke px-7 py-5 dark:border-strokedark">
-                                    <h5 className="text-center font-bold text-black dark:text-white">
-                                        Amparada
-                                    </h5>
-                                </td>
-                                <td className="border-t border-stroke px-7 py-5 dark:border-strokedark">
-                                    <h5 className="text-center font-bold text-black dark:text-white">
-                                        Suma asegurada
-                                    </h5>
-                                </td>
-                                <td className="border-t border-stroke px-7 py-5 dark:border-strokedark">
-                                    <h5 className="text-center font-bold text-black dark:text-white">
-                                        Deducible
-                                    </h5>
-                                </td>
-                            </tr>
-                            {
-                                coberturas.map((cobertura, index) => {
+                                </tr>
+                                : <tr>
+                                    <th className="w-1/4 px-5" />
+                                    <th className="w-1/4 px-5">
+                                        <div className="mb-10 text-center">
+                                            <span className="mb-3.5 block text-2xl font-bold text-black dark:text-white">
+                                                Paquete {paquetes.filter(paquete => paquete.id===paqueteSeleccionado)[0].nombre}
+                                            </span>
+                                            <button
+                                                type="button"
+                                                className={`block w-full rounded-md bg-slate-300 p-3 text-center font-medium text-black transition hover:bg-opacity-90 ease-in-out delay-15 hover:-translate-y-1 hover:scale-105 duration-300`}
+                                                onClick={() => setpaqueteSeleccionado('')}
+                                            >
+                                                <div className="flex justify-center items-center gap-2">
+                                                    <IoCloseCircleOutline size={18}/> Cambiar paquete
+                                                </div>
+                                            </button>
+                                        </div>
+                                    </th>
+                                </tr>
+                        }
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td className="w-1/4 border-t border-stroke px-7 py-5 dark:border-strokedark">
+                                <h5 className="font-bold text-black dark:text-white">
+                                    Cobertura
+                                </h5>
+                            </td>
+                            <td className="w-1/4 border-t border-stroke px-7 py-5 dark:border-strokedark">
+                                <h5 className="text-center font-bold text-black dark:text-white">
+                                    Amparada
+                                </h5>
+                            </td>
+                            <td className="w-1/4 border-t border-stroke px-7 py-5 dark:border-strokedark">
+                                <h5 className="text-center font-bold text-black dark:text-white">
+                                    {
+                                        paqueteSeleccionado === ''
+                                            ? "Amparada"
+                                            : "Suma asegurada"
+                                    }
+                                </h5>
+                            </td>
+                            <td className="w-1/4 border-t border-stroke px-7 py-5 dark:border-strokedark">
+                                <h5 className="text-center font-bold text-black dark:text-white">
+                                    {
+                                        paqueteSeleccionado === ''
+                                            ? "Amparada"
+                                            : "Deducible"
+                                    }
+                                </h5>
+                            </td>
+                        </tr>
+                        {
+                            coberturas.map((cobertura, index) => {
 
-                                    const amparada = paquetes[0].coberturasAmparadas[index];
-                                    const amparada1 = paquetes[1].coberturasAmparadas[index];
-                                    const amparada2 = paquetes[2].coberturasAmparadas[index];
-                                    const color = amparada ? "green" : "red";
-                                    
-                                    return (
-                                    <tr key={"Cobertura-"+cobertura}>
-                                        <td className="border-t border-stroke px-7 py-5 dark:border-strokedark">
+                                const amparada = paquetes[0].coberturasAmparadas[index];
+                                const amparada1 = paquetes[1].coberturasAmparadas[index];
+                                const amparada2 = paquetes[2].coberturasAmparadas[index];
+                                const color = amparada ? "green" : "red";
+
+                                return (
+                                    <tr key={"Cobertura-" + cobertura}>
+                                        <td className="w-1/4 border-t border-stroke px-7 py-5 dark:border-strokedark">
                                             <p className="font-medium">{cobertura}</p>
                                         </td>
-                                        <td className="border-t border-stroke px-7 py-5 dark:border-strokedark">
+                                        <td className="w-1/4 border-t border-stroke px-7 py-5 dark:border-strokedark">
                                             <div className="flex justify-center">
                                                 {
                                                     amparada
-                                                        ? <IoCheckmarkCircleOutline size={30} color={color}/>
-                                                        : <IoCloseCircleOutline size={30} color={color}/>
+                                                        ? <IoCheckmarkCircleOutline size={30} color={color} />
+                                                        : <IoCloseCircleOutline size={30} color={color} />
                                                 }
                                             </div>
                                         </td>
-                                        <td className="border-t border-stroke px-7 py-5 dark:border-strokedark">
+                                        <td className="w-1/4 border-t border-stroke px-7 py-5 dark:border-strokedark">
                                             <div className="flex justify-center">
                                                 {
                                                     amparada1
-                                                        ? <IoCheckmarkCircleOutline size={30} color={amparada1 ? "green" : "red"}/>
-                                                        : <IoCloseCircleOutline size={30} color={amparada1 ? "green" : "red"}/>
+                                                        ? <IoCheckmarkCircleOutline size={30} color={amparada1 ? "green" : "red"} />
+                                                        : <IoCloseCircleOutline size={30} color={amparada1 ? "green" : "red"} />
                                                 }
                                             </div>
                                         </td>
-                                        <td className="border-t border-stroke px-7 py-5 dark:border-strokedark">
+                                        <td className="w-1/4 border-t border-stroke px-7 py-5 dark:border-strokedark">
                                             <div className="flex justify-center">
                                                 {
                                                     amparada2
-                                                        ? <IoCheckmarkCircleOutline size={30} color={amparada2 ? "green" : "red"}/>
-                                                        : <IoCloseCircleOutline size={30} color={amparada2 ? "green" : "red"}/>
+                                                        ? <IoCheckmarkCircleOutline size={30} color={amparada2 ? "green" : "red"} />
+                                                        : <IoCloseCircleOutline size={30} color={amparada2 ? "green" : "red"} />
                                                 }
                                             </div>
                                         </td>
                                     </tr>
-                                )})
-                            }
+                                )
+                            })
+                        }
 
-                            {/* <tr>
+                        {/* <tr>
                                 <td className="border-t border-stroke px-7 py-5 dark:border-strokedark">
                                     <p className="font-medium">Deducible hasta</p>
                                 </td>
@@ -193,7 +231,7 @@ export const FormularioPaquete = () => {
                                     <p className="text-center font-medium">10 %</p>
                                 </td>
                             </tr> */}
-                            {/* <tr>
+                        {/* <tr>
                                 <td className="border-t border-stroke px-7 py-5 dark:border-strokedark">
                                     <p className="font-medium">Email Support</p>
                                 </td>
@@ -207,7 +245,7 @@ export const FormularioPaquete = () => {
                                     <p className="text-center font-medium">6 Months</p>
                                 </td>
                             </tr> */}
-                            {/* <tr>
+                        {/* <tr>
                                 <td className="border-t border-stroke px-7 py-5 dark:border-strokedark">
                                     <p className="font-medium">RCD a Terceros</p>
                                 </td>
@@ -272,7 +310,7 @@ export const FormularioPaquete = () => {
                                     </p>
                                 </td>
                             </tr> */}
-                            {/* <tr>
+                        {/* <tr>
                                 <td className="border-t border-stroke px-7 py-5 dark:border-strokedark">
                                     <p className="font-medium">Gastos legales</p>
                                 </td>
@@ -337,7 +375,7 @@ export const FormularioPaquete = () => {
                                     </p>
                                 </td>
                             </tr> */}
-                            {/* <tr>
+                        {/* <tr>
                                 <td className="border-t border-stroke px-7 py-5 dark:border-strokedark">
                                     <p className="font-medium">GM ocupantes</p>
                                 </td>
@@ -402,7 +440,7 @@ export const FormularioPaquete = () => {
                                     </p>
                                 </td>
                             </tr> */}
-                            {/* <tr>
+                        {/* <tr>
                                 <td className="border-t border-stroke px-7 py-5 dark:border-strokedark">
                                     <p className="font-medium">Asistencia vial</p>
                                 </td>
@@ -467,7 +505,7 @@ export const FormularioPaquete = () => {
                                     </p>
                                 </td>
                             </tr> */}
-                            {/* <tr>
+                        {/* <tr>
                                 <td className="border-t border-stroke px-7 py-5 dark:border-strokedark">
                                     <p className="font-medium">Robo total</p>
                                 </td>
@@ -532,7 +570,7 @@ export const FormularioPaquete = () => {
                                     </p>
                                 </td>
                             </tr> */}
-                            {/* <tr>
+                        {/* <tr>
                                 <td className="border-t border-stroke px-7 py-5 dark:border-strokedark">
                                     <p className="font-medium">Daños materiales</p>
                                 </td>
@@ -597,8 +635,8 @@ export const FormularioPaquete = () => {
                                     </p>
                                 </td>
                             </tr> */}
-                        </tbody>
-                    </table>
+                    </tbody>
+                </table>
                 {/* </div> */}
                 {/* <div>
                     <span className="absolute left-0 top-0 -z-1">
