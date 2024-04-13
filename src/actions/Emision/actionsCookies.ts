@@ -1,27 +1,31 @@
 import Paquete from "@/interface/Paquete";
-import { getCookie, hasCookie, setCookie } from "cookies-next"
+import cookiesBD from "@/lib/cookiesBD";
+import paquetes from "@/lib/paquetes";
+import { deleteCookie, getCookie, hasCookie, setCookie } from "cookies-next";
+
+export const getCookieIDpaqueteSeleccionado = ():string => {
+    let idPaqueteSeleccionado: string = ''
+    if( hasCookie(cookiesBD.paqueteSeleccionado.key) ){
+        idPaqueteSeleccionado = JSON.parse( getCookie(cookiesBD.paqueteSeleccionado.key) as string ?? '' );
+    }
+    return idPaqueteSeleccionado;
+}
 
 export const getCookiePaqueteSeleccionado = ():Paquete => {
-
-    let cookieCart = ""
-    if( hasCookie('cart') ){
-        cookieCart = JSON.parse( getCookie('cart') as string ?? '{}' );
+    let cookiePaqueteSeleccionado = {id:''} as Paquete;
+    if( hasCookie(cookiesBD.paqueteSeleccionado.key) ){
+        cookiePaqueteSeleccionado = JSON.parse( getCookie(cookiesBD.paqueteSeleccionado.key) as string ?? {} );
     }
-    return cookieCart;
+    return cookiePaqueteSeleccionado;
 }
 
-export const addProductToCart = ( id:string ) => {
-    const cookieCart = getCookieCart();
-    if( cookieCart[id] ){
-        cookieCart[id] = cookieCart[id] + 1;
-    } else {
-        cookieCart[id] = 1;
+export const setCookiePaqueteSeleccionado = ( id:string ):void => {
+    const paquete = paquetes.filter(paquete => paquete.id === id)[0];
+    if (paquete) {
+        setCookie(cookiesBD.paqueteSeleccionado.key, JSON.stringify(paquete));
     }
-    setCookie('cart', JSON.stringify(cookieCart));
 }
 
-export const removeProductToCart = ( id:string ) => {
-    const cookieCart = getCookieCart();
-    delete cookieCart[id];
-    setCookie('cart', JSON.stringify(cookieCart));
+export const deleteCookiePaqueteSeleccionado = ():void => {
+    deleteCookie(cookiesBD.paqueteSeleccionado.key);
 }

@@ -10,15 +10,15 @@ import { CoberturasAmparadas } from "./CoberturasAmparadas";
 import { FormularioSumasAseguradas } from "./FormularioSumasAseguradas";
 import { Paquetes } from "./Paquetes";
 
+// Actions propios
+import { getCookiePaqueteSeleccionado } from "@/actions/Emision/actionsCookies";
+
 // BD estatica
-import paquetes from "@/lib/paquetes";
-import coberturas from "@/lib/coberturas";
-import cookiesBD from "@/lib/cookiesBD";
+
 
 export const FormularioPaquete = () => {
 
-    const paqueteSeleccionado = getCookie(cookiesBD.paqueteSeleccionado.key);
-    console.log(paqueteSeleccionado);
+    const paqueteSeleccionado = getCookiePaqueteSeleccionado();
 
     return (
         <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
@@ -47,18 +47,18 @@ export const FormularioPaquete = () => {
                             <td className="w-1/4 border-t border-stroke px-7 py-5 dark:border-strokedark">
                                 <h5 className="text-center font-bold text-black dark:text-white">
                                     {
-                                        paqueteSeleccionado === ''
-                                            ? "Amparada"
-                                            : "Suma asegurada"
+                                        paqueteSeleccionado.id
+                                            ? "Suma asegurada" 
+                                            : "Amparada"
                                     }
                                 </h5>
                             </td>
                             <td className="w-1/4 border-t border-stroke px-7 py-5 dark:border-strokedark">
                                 <h5 className="text-center font-bold text-black dark:text-white">
                                     {
-                                        paqueteSeleccionado === ''
-                                            ? "Amparada"
-                                            : "Deducible"
+                                        paqueteSeleccionado.id
+                                            ? "Deducible"
+                                            : "Amparada"
                                     }
                                 </h5>
                             </td>
@@ -66,9 +66,9 @@ export const FormularioPaquete = () => {
                     </thead>
                     <tbody>
                         {
-                            paqueteSeleccionado === ''
-                                ? <CoberturasAmparadas/>
-                                : <FormularioSumasAseguradas/>
+                            paqueteSeleccionado.id
+                                ? <FormularioSumasAseguradas/> 
+                                : <CoberturasAmparadas/>
                         }
                     </tbody>
                 </table>
