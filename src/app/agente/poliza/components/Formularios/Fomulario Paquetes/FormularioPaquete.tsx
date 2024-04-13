@@ -1,36 +1,16 @@
 'use client';
 
-import SwitcherThree from "@/components/Switchers/SwitcherThree";
+// Librerias
 import { useState } from "react";
-import { IoCheckmarkCircleOutline, IoCloseCircleOutline } from "react-icons/io5";
+import { IoCloseCircleOutline } from "react-icons/io5";
+
+// Componentes propios
 import { CoberturasAmparadas } from "./CoberturasAmparadas";
 import { FormularioSumasAseguradas } from "./FormularioSumasAseguradas";
 
-const paquetes = [
-    {
-        id: "01",
-        nombre: "Básico",
-        descripcion: "Descripción del paquete básico.",
-        color: "bg-black",
-        coberturasAmparadas: [true, true, true, true, false, false]
-    },
-    {
-        id: "02",
-        nombre: "Limitado",
-        descripcion: "Descripción del paquete limitado.",
-        color: "bg-[#13C296]",
-        coberturasAmparadas: [true, true, true, true, true, false]
-    },
-    {
-        id: "03",
-        nombre: "Amplia",
-        descripcion: "Descripción del paquete Amplia.",
-        color: "bg-primary",
-        coberturasAmparadas: [true, true, true, true, true, true]
-    }
-]
-
-const coberturas = ["RCD a terceros", "Gastos legales", "GM ocupantes", "Asistencia Vial", "Robo total", "Daños materias"]
+// BD estatica
+import paquetes from "@/lib/paquetes";
+import coberturas from "@/lib/coberturas";
 
 export const FormularioPaquete = () => {
 
