@@ -12,7 +12,7 @@ const paquetes:Paquete[] = [
         id: "02",
         nombre: "Limitado",
         descripcion: "Descripción del paquete limitado.",
-        color: "bg-[#13C296]",
+        color: "bg-meta-3",
         coberturasAmparadas: ["01","02","03","04","05","06"]
     },
     {

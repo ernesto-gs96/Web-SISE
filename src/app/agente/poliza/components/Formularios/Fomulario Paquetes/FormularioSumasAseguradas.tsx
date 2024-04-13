@@ -1,20 +1,24 @@
-import Cobertura from "@/interface/Cobertura";
-import Paquete from "@/interface/Paquete";
+"use client";
+
+// Librerias
+import { getCookie } from "cookies-next";
 import { IoCheckmarkCircleOutline, IoCloseCircleOutline } from "react-icons/io5";
 
-interface Props {
-  coberturas: Cobertura[],
-  paquete: Paquete
-}
+// BD estatica
+import coberturas from "@/lib/coberturas";
+import cookiesBD from "@/lib/cookiesBD";
 
-export const FormularioSumasAseguradas = ({ coberturas, paquete }: Props) => {
+export const FormularioSumasAseguradas = () => {
+
+  const paqueteSeleccionado = JSON.parse(getCookie(cookiesBD.paqueteSeleccionado.key) ?? '');
+
   return (
     <>
       {
         coberturas.map( cobertura => {
 
           // TODO: Buscar si hay una mejor forma que la doble negación
-          const amparada = !!paquete.coberturasAmparadas.find(cobe => cobe === cobertura.id)
+          const amparada = !!paqueteSeleccionado.coberturasAmparadas.find(cobe => cobe === cobertura.id)
           const color = amparada ? "green" : "red";
 
           return (

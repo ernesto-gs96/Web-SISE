@@ -1,13 +1,11 @@
-import Cobertura from "@/interface/Cobertura";
-import Paquete from "@/interface/Paquete";
+// Librerias
 import { IoCheckmarkCircleOutline, IoCloseCircleOutline } from "react-icons/io5";
 
-interface Props {
-    coberturas: Cobertura[],
-    paquetes: Paquete[]
-  }
+// BD estatica
+import coberturas from "@/lib/coberturas";
+import paquetes from "@/lib/paquetes";
 
-export const CoberturasAmparadas = ({ coberturas, paquetes }: Props) => {
+export const CoberturasAmparadas = () => {
     return (
         <>
             {
