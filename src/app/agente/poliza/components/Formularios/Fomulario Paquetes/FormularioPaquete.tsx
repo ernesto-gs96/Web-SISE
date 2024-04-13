@@ -1,9 +1,4 @@
-'use client';
-
 // Librerias
-import { useEffect, useState } from "react";
-import { IoCloseCircleOutline } from "react-icons/io5";
-import { getCookie } from "cookies-next";
 
 // Componentes propios
 import { CoberturasAmparadas } from "./CoberturasAmparadas";

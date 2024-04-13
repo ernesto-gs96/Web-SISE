@@ -22,7 +22,7 @@ export const CoberturasAmparadas = () => {
                                 const color = amparada ? "green" : "red";
 
                                 return (
-                                    <td className="w-1/4 border-t border-stroke px-7 py-5 dark:border-strokedark">
+                                    <td key={`Cobertura-Amparada-${cobertura.id}-${paquete.id}`} className="w-1/4 border-t border-stroke px-7 py-5 dark:border-strokedark">
                                         <div className="flex justify-center">
                                             {
                                                 amparada
