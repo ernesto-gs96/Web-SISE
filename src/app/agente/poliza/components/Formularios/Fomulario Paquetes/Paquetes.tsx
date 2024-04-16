@@ -1,6 +1,6 @@
 "use client";
 
-import { deleteCookiePaqueteSeleccionado, setCookiePaqueteSeleccionado } from "@/actions/Emision/actionsCookies";
+import { deleteCookiePaqueteSeleccionado, getCookiePaqueteSeleccionado, setCookiePaqueteSeleccionado } from "@/actions/Emision/actionsCookies";
 import paquetes from "@/lib/paquetes";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -8,7 +8,8 @@ import { IoCloseCircleOutline } from "react-icons/io5";
 
 export const Paquetes = () => {
 
-    const [paqueteSeleccionado, setpaqueteSeleccionado] = useState<string>('');
+    const { id } = getCookiePaqueteSeleccionado();
+    const [paqueteSeleccionado, setpaqueteSeleccionado] = useState<string>(id);
     const router = useRouter();
 
     const seleccionarPaquete = (id: string) => {

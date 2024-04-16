@@ -51,14 +51,12 @@ export const FormularioSumasAseguradas = () => {
                   ))}
                 </div>
               </td>
-              <td className={`w-1/4 border-t border-stroke px-7 py-5 dark:border-strokedark`}>
-                <div className="flex justify-center top-0">
-                  {
-                    amparada
-                      ? <IoCheckmarkCircleOutline size={30} color={color} />
-                      : <IoCloseCircleOutline size={30} color={color} />
-                  }
-                </div>
+              <td className={`w-full border-t border-stroke px-7 py-5 dark:border-strokedark flex justify-center`}>
+                {
+                  amparada
+                    ? <IoCheckmarkCircleOutline size={30} color={color} />
+                    : <IoCloseCircleOutline size={30} color={color} />
+                }
               </td>
               <td className="w-1/4 border-t border-stroke px-7 py-5 dark:border-strokedark">
                 <div className="flex justify-center">
@@ -75,11 +73,11 @@ export const FormularioSumasAseguradas = () => {
                   {cobertura.subCoberturas.map(subCob => (
                     <div className="flex justify-center mt-3" key={"Suma" + subCob.abreviatura + subCob.id}>
                       <input
-                      name={`sumaAsegurada${subCob.abreviatura}`}
-                      type="number"
-                      placeholder={`Suma asegurada ${subCob.abreviatura}`}
-                      className="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
-                    />
+                        name={`sumaAsegurada${subCob.abreviatura}`}
+                        type="number"
+                        placeholder={`Suma asegurada ${subCob.abreviatura}`}
+                        className="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                      />
                     </div>
                   ))}
                 </div>
@@ -99,11 +97,11 @@ export const FormularioSumasAseguradas = () => {
                   {cobertura.subCoberturas.map(subCob => (
                     <div className="flex justify-center mt-3" key={"Deducible" + subCob.abreviatura + subCob.id}>
                       <input
-                      name={`deducible${cobertura.abreviatura}`}
-                      type="number"
-                      placeholder={`Deducible ${subCob.abreviatura}`}
-                      className="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
-                    />
+                        name={`deducible${cobertura.abreviatura}`}
+                        type="number"
+                        placeholder={`Deducible ${subCob.abreviatura}`}
+                        className="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                      />
                     </div>
                   ))}
                 </div>

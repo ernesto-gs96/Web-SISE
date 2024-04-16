@@ -34,7 +34,9 @@ export default function EmitirPolizaPage() {
             ? <FormularioAsegurado setState={setNumeroFormulario} />
             : numeroFormulario == 2
             ? <FormularioVehiculo/>
-            : <FormularioPaquete/>
+            : numeroFormulario == 3 
+              ? <FormularioPaquete/>
+              : null
       }
       <div className="flex justify-center gap-4 mt-4">
         {
@@ -48,7 +50,7 @@ export default function EmitirPolizaPage() {
         }
 
         {
-          numeroFormulario <= 2 &&
+          numeroFormulario <= 3 &&
           <button
             onClick={() => setNumeroFormulario(numeroFormulario + 1)}
             className="inline-flex items-center justify-center rounded-full bg-primary px-10 py-4 text-center font-medium text-white hover:bg-opacity-90 lg:px-8 xl:px-10"
