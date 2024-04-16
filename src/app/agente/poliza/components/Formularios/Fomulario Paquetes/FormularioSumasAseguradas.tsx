@@ -14,7 +14,7 @@ export const FormularioSumasAseguradas = () => {
   const paqueteSeleccionado = getCookiePaqueteSeleccionado();
   const [coberturaSeleccionada, setcoberturaSeleccionada] = useState<string>('');
 
-  const seleccionarCobertura = (id:string) => {
+  const seleccionarCobertura = (id: string) => {
     if (coberturaSeleccionada !== id) {
       setcoberturaSeleccionada(id);
     } else {
@@ -36,17 +36,23 @@ export const FormularioSumasAseguradas = () => {
               <td className="w-1/4 border-t border-stroke px-7 py-5 dark:border-strokedark">
                 <div className="flex justify-between gap-2 font-medium duration-300 ease-in-out">
                   {cobertura.nombre}
-                  <IoChevronDownOutline  size={20} 
+                  <IoChevronDownOutline size={20}
                     className={`${cobertura.id === coberturaSeleccionada && "rotate-180"}`}
                     onClick={() => seleccionarCobertura(cobertura.id)}
                   />
                 </div>
-                <div className={`mt-3 translate transform overflow-hidden ${!(cobertura.id === coberturaSeleccionada) && "hidden"}`}>
-                  {cobertura.nombre}
+
+                {/* Nombres de coberturas hijas */}
+                <div className={`translate transform overflow-hidden ${!(cobertura.id === coberturaSeleccionada) && "hidden"}`}>
+                  {cobertura.subCoberturas.map(subCob => (
+                    <div className="font-medium mt-5" key={"nombre" + subCob.abreviatura + subCob.id}>
+                      {subCob.nombre}
+                    </div>
+                  ))}
                 </div>
               </td>
-              <td className="w-1/4 border-t border-stroke px-7 py-5 dark:border-strokedark">
-                <div className="flex justify-center">
+              <td className={`w-1/4 border-t border-stroke px-7 py-5 dark:border-strokedark`}>
+                <div className="flex justify-center top-0">
                   {
                     amparada
                       ? <IoCheckmarkCircleOutline size={30} color={color} />
@@ -63,6 +69,20 @@ export const FormularioSumasAseguradas = () => {
                     className="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                   />
                 </div>
+
+                {/* Sumas de coberturas hijas */}
+                <div className={`${!(cobertura.id === coberturaSeleccionada) && "hidden"}`}>
+                  {cobertura.subCoberturas.map(subCob => (
+                    <div className="flex justify-center mt-3" key={"Suma" + subCob.abreviatura + subCob.id}>
+                      <input
+                      name={`sumaAsegurada${subCob.abreviatura}`}
+                      type="number"
+                      placeholder={`Suma asegurada ${subCob.abreviatura}`}
+                      className="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                    />
+                    </div>
+                  ))}
+                </div>
               </td>
               <td className="w-1/4 border-t border-stroke px-7 py-5 dark:border-strokedark">
                 <div className="flex justify-center">
@@ -72,6 +92,20 @@ export const FormularioSumasAseguradas = () => {
                     placeholder={`Deducible ${cobertura.abreviatura}`}
                     className="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                   />
+                </div>
+
+                {/* Deducibles de coberturas hijas */}
+                <div className={`${!(cobertura.id === coberturaSeleccionada) && "hidden"}`}>
+                  {cobertura.subCoberturas.map(subCob => (
+                    <div className="flex justify-center mt-3" key={"Deducible" + subCob.abreviatura + subCob.id}>
+                      <input
+                      name={`deducible${cobertura.abreviatura}`}
+                      type="number"
+                      placeholder={`Deducible ${subCob.abreviatura}`}
+                      className="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                    />
+                    </div>
+                  ))}
                 </div>
               </td>
             </tr>
