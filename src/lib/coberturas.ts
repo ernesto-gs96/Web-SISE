@@ -9,6 +9,10 @@ const coberturas:Cobertura[] = [
         sumaMaxima: 1500000,
         sumaMinima: 500000,
         sumaDefecto: 1000000,
+        deducibleMaxima: 100,
+        deducibleMinima: 0,
+        deducibleDefecto: 15,
+        prima: 100,
         subCoberturas: []
     },
     {
@@ -18,6 +22,10 @@ const coberturas:Cobertura[] = [
         sumaMaxima: 2500000,
         sumaMinima: 1000000,
         sumaDefecto: 2000000,
+        deducibleMaxima: 100,
+        deducibleMinima: 10,
+        deducibleDefecto: 10,
+        prima: 200,
         subCoberturas: []
     },
     {
@@ -27,6 +35,10 @@ const coberturas:Cobertura[] = [
         sumaMaxima: 3500000,
         sumaMinima: 1500000,
         sumaDefecto: 2000000,
+        deducibleMaxima: 100,
+        deducibleMinima: 15,
+        deducibleDefecto: 15,
+        prima: 150,
         subCoberturas: []
     },
     {
@@ -36,6 +48,10 @@ const coberturas:Cobertura[] = [
         sumaMaxima: 1500000,
         sumaMinima: 500000,
         sumaDefecto: 1000000,
+        deducibleMaxima: 100,
+        deducibleMinima: 0,
+        deducibleDefecto: 15,
+        prima: 100,
         subCoberturas: []
     },
     {
@@ -45,6 +61,10 @@ const coberturas:Cobertura[] = [
         sumaMaxima: 2500000,
         sumaMinima: 1000000,
         sumaDefecto: 2000000,
+        deducibleMaxima: 100,
+        deducibleMinima: 10,
+        deducibleDefecto: 10,
+        prima: 200,
         subCoberturas: []
     },
     {
@@ -54,6 +74,10 @@ const coberturas:Cobertura[] = [
         sumaMaxima: 3500000,
         sumaMinima: 2500000,
         sumaDefecto: 2000000,
+        deducibleMaxima: 100,
+        deducibleMinima: 15,
+        deducibleDefecto: 15,
+        prima: 200,
         subCoberturas: []
     },
     {
@@ -63,6 +87,10 @@ const coberturas:Cobertura[] = [
         sumaMaxima: 1500000,
         sumaMinima: 500000,
         sumaDefecto: 1000000,
+        deducibleMaxima: 100,
+        deducibleMinima: 0,
+        deducibleDefecto: 15,
+        prima: 100,
         subCoberturas: []
     },
          

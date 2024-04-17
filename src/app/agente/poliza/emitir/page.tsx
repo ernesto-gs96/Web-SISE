@@ -7,6 +7,7 @@ import { FormularioPolizaNueva } from "../components/Formularios/FormularioPoliz
 import { useEffect, useState } from "react";
 import { FormularioVehiculo } from "../components/Formularios/FormularioVehiculo";
 import { FormularioPaquete } from "../components/Formularios/Fomulario Paquetes/FormularioPaquete";
+import { FormularioPrimas } from "../components/Formularios/FormularioPrimas";
 
 // export const metadata: Metadata = {
 //   title: "Emicion de poliza",
@@ -36,7 +37,7 @@ export default function EmitirPolizaPage() {
             ? <FormularioVehiculo/>
             : numeroFormulario == 3 
               ? <FormularioPaquete/>
-              : null
+              : <FormularioPrimas/>
       }
       <div className="flex justify-center gap-4 mt-4">
         {
